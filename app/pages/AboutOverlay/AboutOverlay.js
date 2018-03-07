@@ -1,6 +1,7 @@
 // NPM
 import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
+import _ from 'lodash';
 
 // API
 import { toggleAboutOverlay } from '../../state/actions';
@@ -26,7 +27,7 @@ class AboutOverlay extends Component {
 
 	constructor(props) {
 		super(props);
-		this.onScroll = this.onScroll.bind(this);
+		this.onScroll = _.throttle(this.onScroll, 16.66).bind(this);
 	}
 
 	componentDidMount() {

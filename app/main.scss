@@ -1,3 +1,14 @@
 @import './_reset.scss';
 
 @import './pages/AboutOverlay/_about-overlay';
+
+@import './components/StickyNav/_sticky-nav';
+
+
+.home {
+	padding-top: 66vh;
+}
+
+.feed {
+	padding-bottom: 200vh;
+}

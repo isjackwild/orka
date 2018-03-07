@@ -10,6 +10,7 @@ const INITIAL = {
 	isInitialDataLoaded: false,
 	isLoading: true,
 	isAboutOverlayVisible: false,
+	feedFilter: 'feed--all',
 };
 
 const store = createStore((state, action) => (

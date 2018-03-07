@@ -56,7 +56,7 @@ class App extends Component {
 				</Router>
 				<AboutOverlay text={data.about} />
 				<Footer />
-				<div class="show-about" onClick={showAboutOverlay}>ABOUT</div>
+				
 			</div>
 		);
 	}
@@ -66,18 +66,8 @@ const mapStateToProps = ({ isPhone, isInitialDataLoaded }) => {
 	return { isPhone, isInitialDataLoaded };
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		showAboutOverlay: () => {
-			dispatch(toggleAboutOverlay());
-		},
-	};
-};
-
-
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps,
 )(App);
 
 
