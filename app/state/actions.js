@@ -13,7 +13,6 @@ export const toggleAboutOverlay = () => {
 };
 
 export const setFilter = (value) => {
-	console.log(value);
 	return { type: SET_FILTER, value };
 };
 

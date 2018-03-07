@@ -47,7 +47,6 @@ class App extends Component {
 	}
 
 	render({ isPhone, isInitialDataLoaded, showAboutOverlay }, { data }) {
-		console.log(data);
 		if (!isInitialDataLoaded) return <span>loading...</span>;
 		return (
 			<div class="app">

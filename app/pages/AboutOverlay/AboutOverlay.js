@@ -18,19 +18,22 @@ const View = ({ text, isAboutOverlayVisible, onScroll, shimOpacity, applyInnerTr
 	</div>
 );
 
-
+// TODO: Possibly ease out the scroll overlay — altho might not work at 60fps
 class AboutOverlay extends Component {
 	state = {
 		applyInnerTransform: true,
 		shimOpacity: 0,
+		contentHeight: null,
 	}
 
 	constructor(props) {
 		super(props);
 		this.onScroll = _.throttle(this.onScroll, 16.66).bind(this);
+		this.onResize = _.throttle(this.onResize, 111).bind(this);
 	}
 
 	componentDidMount() {
+		this.onResize();
 	}
 
 	componentDidUpdate({ isAboutOverlayVisible }) {
@@ -39,7 +42,11 @@ class AboutOverlay extends Component {
 
 	onScroll({ target }) {
 		const max = target.scrollHeight - window.innerHeight;
-		const shimOpacity = 1 - (target.scrollTop / max);
+		// const shimOpacity = 1 - (target.scrollTop / max);
+		// console.log(target.scrollTop - (this.state.contentHeight - window.innerHeight));
+		const scrollOut = target.scrollTop - (this.state.contentHeight - window.innerHeight);
+		const shimOpacity = Math.min(1 - scrollOut / window.innerHeight, 1);
+
 		this.setState({ shimOpacity });
 		if (target.scrollTop === max) {
 			this.props.hide();
@@ -47,7 +54,12 @@ class AboutOverlay extends Component {
 		}
 	}
 
+	onResize() {
+		this.setState({ contentHeight: document.querySelector('.about-overlay__inner').getBoundingClientRect().height });
+	}
+
 	show() {
+		this.onResize();
 		document.querySelector('.about-overlay').scrollTop = 0;
 		this.setState({ applyInnerTransform: false, shimOpacity: 1 });
 	}
