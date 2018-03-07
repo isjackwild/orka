@@ -55,7 +55,6 @@ class App extends Component {
 				</Router>
 				<AboutOverlay text={data.about} />
 				<Footer />
-				
 			</div>
 		);
 	}

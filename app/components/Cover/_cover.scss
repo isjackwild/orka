@@ -1,0 +1,18 @@
+.cover {
+	position: relative;
+	background: rgba(#00ff00, 0.2);
+}
+
+.cover__canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #ff00ff;
+}
+
+.cover,
+.cover__canvas {
+	width: 100%;
+	height: 56.5vw;
+	max-height: 90vh;
+}

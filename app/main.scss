@@ -1,12 +1,14 @@
-@import './_reset.scss';
+@import './scss/_reset.scss';
+@import './scss/_vars.scss';
 
 @import './pages/AboutOverlay/_about-overlay';
 
 @import './components/StickyNav/_sticky-nav';
+@import './components/Cover/_cover';
 
-
-.home {
-	padding-top: 66vh;
+.home__content {
+	position: relative;
+	background: #ffffff;
 }
 
 .feed {
