@@ -9,6 +9,7 @@ const INITIAL = {
 	isDesktop: !md.mobile(),
 	isInitialDataLoaded: false,
 	isLoading: true,
+	isAboutOverlayVisible: false,
 };
 
 const store = createStore((state, action) => (

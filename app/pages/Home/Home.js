@@ -1,9 +1,12 @@
 // NPM
 import { h, render, Component } from 'preact';
 
-const View = ({ title }) => (
+// Components
+import About from '../../components/About/About';
+
+const View = ({ aboutText }) => (
 	<main data-page="home" class="home">
-		<h1>Home</h1>
+		<About text={aboutText} />
 	</main>
 );
 
@@ -11,7 +14,8 @@ const View = ({ title }) => (
 
 class Home extends Component {
 	render(props, state) {
-		return <View { ...state.data } />;
+		console.log(props);
+		return <View { ...props } />;
 	}
 };
 

@@ -1,0 +1,40 @@
+.about-overlay {
+	// background: rgba(#000, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding-bottom: 100vh;
+	overflow: scroll;
+}
+
+.about-overlay--hidden {
+	display: none;
+}
+
+.about-overlay__inner {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: red;
+	transition: transform 0.5s ease-out;
+}
+
+.about-overlay__inner--transform {
+	transform: translateY(-100%);
+}
+
+.about-overlay__shim {
+	background: transparent;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transition: background 0.5s ease-out;
+}
+
+.about-overlay__shim--visible {
+	background: rgba(#000, 0.5);
+}
