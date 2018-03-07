@@ -6,10 +6,14 @@ import _ from 'lodash';
 // API
 import { toggleAboutOverlay } from '../../state/actions';
 
+// Components
+import FeedFilter from '../FeedFilter/FeedFilter';
+
 const View = ({ showAbout, position }) => (
 	<div class="sticky-nav__wrapper">
 		<nav class="sticky-nav" style={{ position }}>
 			<span onClick={showAbout}>ORKA</span>
+			<FeedFilter />
 		</nav>
 	</div>
 );
@@ -36,8 +40,6 @@ class StickyNav extends Component {
 	onScroll() {
 		if (this.state.offsetTop === null) return;
 		const st = document.documentElement.scrollTop || document.body.scrollTop || 0;
-
-		console.log(st, this.state.offsetTop);
 		
 		if (st > this.state.offsetTop && this.state.position === 'relative') {
 			this.setState({ position: 'fixed' });

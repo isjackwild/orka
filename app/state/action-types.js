@@ -1,2 +1,3 @@
 export const ON_INITIAL_LOAD = 'ON_INITIAL_LOAD';
 export const TOGGLE_ABOUT_OVERLAY = 'TOGGLE_ABOUT_OVERLAY';
+export const SET_FILTER = 'SET_FILTER';
