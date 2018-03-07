@@ -32,7 +32,6 @@
 	min-height: 100vh;
 	background: red;
 	transition: transform 0.4s ease-out;
-	font-size: 50px;
 }
 
 .about-overlay__inner--transform {
@@ -50,5 +49,5 @@
 }
 
 .about-overlay__shim--visible {
-	background: rgba(#000, 0.5);
+	background: rgba(#000, 0.8);
 }

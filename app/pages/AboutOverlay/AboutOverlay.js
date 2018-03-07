@@ -60,7 +60,7 @@ class AboutOverlay extends Component {
 		const shimOpacity = Math.min(1 - scrollOut / window.innerHeight, 1);
 
 
-		const contentScroll = Easing.Quadratic.EaseOut(target.scrollTop / max) * max;
+		const contentScroll = Easing.Cubic.EaseOut(target.scrollTop / max) * max;
 
 		this.setState({ shimOpacity, contentScroll: contentScroll, });
 		if (target.scrollTop === max) {
