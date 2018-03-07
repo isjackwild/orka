@@ -13,12 +13,14 @@ import About from '../../components/About/About';
 import Easing from '../../utils/Easings';
 console.log(Easing);
 
+const SCROLL_LENGTH = 1.33;
+
 const View = ({ text, isAboutOverlayVisible, onScroll, shimOpacity, applyInnerTransform, contentHeight, contentScroll }) => (
 	<div class={`about-overlay about-overlay--${isAboutOverlayVisible ? 'visible' : 'hidden'}`} onScroll={onScroll}>
 		<div class={`about-overlay__shim ${!applyInnerTransform ? 'about-overlay__shim--visible' : ''}`} style={{ opacity: shimOpacity }}></div>
 		<div
 			class="about-overlay__spacer"
-			style={{ height: `${contentHeight + 5}px` }}
+			style={{ height: `${contentHeight * SCROLL_LENGTH}px` }}
 		></div>
 		<div class="about-overlay__inner-scroller" style={{ transform: `translate3d(0, ${contentScroll * -1}px, 0)` }}>
 			<div
@@ -54,15 +56,11 @@ class AboutOverlay extends Component {
 
 	onScroll({ target }) {
 		const max = target.scrollHeight - window.innerHeight;
-		// const shimOpacity = 1 - (target.scrollTop / max);
-		// console.log(target.scrollTop - (this.state.contentHeight - window.innerHeight));
-		const scrollOut = target.scrollTop - (this.state.contentHeight - window.innerHeight);
+		const scrollOut = target.scrollTop - (this.state.contentHeight * SCROLL_LENGTH - window.innerHeight);
 		const shimOpacity = Math.min(1 - scrollOut / window.innerHeight, 1);
+		const contentScroll = Easing.Cubic.EaseOut(target.scrollTop / max) * this.state.contentHeight;
 
-
-		const contentScroll = Easing.Cubic.EaseOut(target.scrollTop / max) * max;
-
-		this.setState({ shimOpacity, contentScroll: contentScroll, });
+		this.setState({ shimOpacity, contentScroll: contentScroll * 1.01, });
 		if (target.scrollTop === max) {
 			this.props.hide();
 			this.setState({ applyInnerTransform: true });
