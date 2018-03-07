@@ -1,0 +1,25 @@
+title: Contact
+
+pages: false
+deletable: false
+files: false
+status: false
+preview: false
+icon: phone
+options:
+  status: false
+  url: false
+  template: false
+
+fields:
+  instagram:
+    label: Instagram Profile
+    type: url
+
+  facebook:
+    label: Facebook Profile
+    type: url
+
+  twitter:
+    label: Twitter Profile
+    type: url

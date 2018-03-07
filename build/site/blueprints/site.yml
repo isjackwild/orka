@@ -1,0 +1,25 @@
+title: Site
+
+files: false
+pages: false
+options:
+  status: false
+
+fields:
+  title:
+    label: Title
+    type:  text
+
+  description:
+    label: Description
+    help: Used for SEO
+    type:  textarea
+    
+  copyright:
+    label: Copyright
+    type:  text
+  
+  googleanalytics:
+    label: Google Analytics ID
+    type: text
+

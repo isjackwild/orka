@@ -1,0 +1,12 @@
+title: Home
+
+pages: false
+deletable: false
+files: false
+hide: true
+preview: false
+icon: home
+options:
+  status: false
+  template: false
+  url: false

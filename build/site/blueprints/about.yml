@@ -1,0 +1,17 @@
+title: About
+
+pages: false
+deletable: false
+files: false
+preview: false
+icon: info
+options:
+  status: false
+  url: false
+  template: false
+
+fields:
+  text:
+    required: true
+    label: Text
+    type:  textarea

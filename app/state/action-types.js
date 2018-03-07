@@ -1,0 +1,1 @@
+export const ON_INITIAL_LOAD = 'ON_INITIAL_LOAD';
