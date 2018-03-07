@@ -12,7 +12,7 @@ function generate_feed_json() {
     switch ($page->intendedTemplate()) {
       case 'feed--live':
         $item['date'] = $page->show_date()->value();
-        $item['link'] = (string) $page->tickets()->url();
+        $item['link'] = $page->tickets()->isNotEmpty() ? (string) $page->tickets()->url() : null;
         break;
       case 'feed--news':
         $item['text'] = (string) $page->text()->kt();
@@ -52,7 +52,6 @@ kirby()->set('route', array(
           'facebook' => $contactPage->facebook()->isNotEmpty() ? (string) $contactPage->facebook()->url() : null,
         ];
 
-        // $json = array();
         $json = (object) [
           'title' => $title,
           'description' => $description,
@@ -70,7 +69,7 @@ kirby()->set('route', array(
 ));
 
 kirby()->set('route', array(
-    'pattern' => 'api/feed',
+    'pattern' => 'api/feed-items',
     'action'  => function() {
         return response::json(json_encode(generate_feed_json()));
     }

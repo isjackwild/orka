@@ -13,6 +13,9 @@ import Home from './pages/Home/Home';
 import FourOhFour from './pages/404/404';
 import AboutOverlay from './pages/AboutOverlay/AboutOverlay';
 
+// Components
+import Footer from './components/Footer/Footer';
+
 
 class App extends Component {
 	state = {
@@ -20,7 +23,7 @@ class App extends Component {
 	}
 
 	constructor(props) {
-		super(props)
+		super(props);
 		this.onInitialDataLoaded = this.onInitialDataLoaded.bind(this);
 	}
 
@@ -44,13 +47,15 @@ class App extends Component {
 	}
 
 	render({ isPhone, isInitialDataLoaded, showAboutOverlay }, { data }) {
+		console.log(data);
 		if (!isInitialDataLoaded) return <span>loading...</span>;
 		return (
 			<div class="app">
-				<Home aboutText={data.about}/>
+				<Home aboutText={data.about} feedItems={data.feed.items}/>
 				<Router>
 				</Router>
 				<AboutOverlay text={data.about} />
+				<Footer />
 				<div class="show-about" onClick={showAboutOverlay}>ABOUT</div>
 			</div>
 		);
