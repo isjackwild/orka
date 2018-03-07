@@ -9,26 +9,38 @@ import { toggleAboutOverlay } from '../../state/actions';
 // Components
 import About from '../../components/About/About';
 
-const View = ({ text, isAboutOverlayVisible, onScroll, shimOpacity, applyInnerTransform }) => (
+// OTHER
+import Easing from '../../utils/Easings';
+console.log(Easing);
+
+const View = ({ text, isAboutOverlayVisible, onScroll, shimOpacity, applyInnerTransform, contentHeight, contentScroll }) => (
 	<div class={`about-overlay about-overlay--${isAboutOverlayVisible ? 'visible' : 'hidden'}`} onScroll={onScroll}>
 		<div class={`about-overlay__shim ${!applyInnerTransform ? 'about-overlay__shim--visible' : ''}`} style={{ opacity: shimOpacity }}></div>
-		<div class={`about-overlay__inner ${applyInnerTransform ? 'about-overlay__inner--transform' : ''}`}>
-			<About text={text} />
+		<div
+			class="about-overlay__spacer"
+			style={{ height: `${contentHeight + 5}px` }}
+		></div>
+		<div class="about-overlay__inner-scroller" style={{ transform: `translate3d(0, ${contentScroll * -1}px, 0)` }}>
+			<div
+				class={`about-overlay__inner ${applyInnerTransform ? 'about-overlay__inner--transform' : ''}`}
+			>
+				<About text={text} />
+			</div>
 		</div>
 	</div>
 );
 
-// TODO: Possibly ease out the scroll overlay — altho might not work at 60fps
 class AboutOverlay extends Component {
 	state = {
 		applyInnerTransform: true,
 		shimOpacity: 0,
 		contentHeight: null,
+		contentScroll: 0,
 	}
 
 	constructor(props) {
 		super(props);
-		this.onScroll = _.throttle(this.onScroll, 16.66).bind(this);
+		this.onScroll = _.throttle(this.onScroll, 8).bind(this);
 		this.onResize = _.throttle(this.onResize, 111).bind(this);
 	}
 
@@ -47,7 +59,10 @@ class AboutOverlay extends Component {
 		const scrollOut = target.scrollTop - (this.state.contentHeight - window.innerHeight);
 		const shimOpacity = Math.min(1 - scrollOut / window.innerHeight, 1);
 
-		this.setState({ shimOpacity });
+
+		const contentScroll = Easing.Quadratic.EaseOut(target.scrollTop / max) * max;
+
+		this.setState({ shimOpacity, contentScroll: contentScroll, });
 		if (target.scrollTop === max) {
 			this.props.hide();
 			this.setState({ applyInnerTransform: true });

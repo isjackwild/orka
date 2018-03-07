@@ -13,12 +13,26 @@
 	display: none;
 }
 
+.about-overlay__spacer {
+	min-height: 100vh;
+}
+
+.about-overlay__inner-scroller {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	min-height: 100vh;
+	transition: transform 0.01s ease-out;
+}
+
 .about-overlay__inner {
-	position: relative;
+	position: fixed;
+	top: 0;
 	width: 100%;
 	min-height: 100vh;
 	background: red;
 	transition: transform 0.4s ease-out;
+	font-size: 50px;
 }
 
 .about-overlay__inner--transform {
