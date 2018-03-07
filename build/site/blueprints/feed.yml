@@ -1,0 +1,30 @@
+title: Feed
+
+pages:
+  template:
+    - feed--news
+    - feed--live
+    - feed--video
+    - feed--shop
+deletable: false
+files: false
+preview: false
+icon: feed
+options:
+  status: false
+  template: false
+  url: false
+
+fields:
+  info:
+    label: Adding Feed items
+    type: info
+    text: Click __'Add'__ in the Pages panel (left on Desktop, in the 'options' dropdown above on Mobile) then select the type of Feed item, add a title, click 'Add', and edit it in the next view.
+  info2:
+    label: Editing Feed items
+    type: info
+    text: Select it from the Pages panel (left on Desktop, in the 'options' dropdown above on Mobile) then edit it in the next view.
+  info3:
+    label: Changing visibility, order and deleting Feed items
+    type: info
+    text: Click __'Edit'__ in the Pages panel (left on Desktop, in the 'options' dropdown above on Mobile) then drag and drop feed items to reorder them or make them invisible. They can also be deleted on this page.<br/>__Pages will not be visible by default__, and must be set to visible to display on the site.

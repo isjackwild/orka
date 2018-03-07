@@ -1,0 +1,28 @@
+title: Live
+
+pages: false
+files:
+  type: image
+deletable: true
+preview: false
+icon: star
+options:
+  status: true
+  template: false
+  url: false
+
+fields:
+  title:
+    label: Title
+    type: text
+    required: true
+    help: E.G. "St. James Hatcham Church, London"
+    validate:
+      maxLength: 100
+  show_date:
+    label: Date
+    type: date
+    required: true
+  tickets:
+    help: Link for ticket sales or more info
+    type: url

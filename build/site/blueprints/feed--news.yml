@@ -1,0 +1,25 @@
+title: News
+
+pages: false
+files:
+  type: image
+deletable: true
+preview: false
+icon: hand-peace-o
+options:
+  status: true
+  template: false
+  url: false
+
+fields:
+  title:
+    label: Title
+    required: true
+    validate:
+      maxLength: 100
+  text:
+    label: Text
+    type: textarea
+    required: true
+    validate:
+      maxLength: 1000

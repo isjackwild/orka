@@ -1,5 +1,42 @@
 <?php
 
+function generate_feed_json() {
+  $pages = page('feed')->children()->visible();
+  $items = array();
+
+  foreach($pages as $page) {
+    $item = array();
+    $item['title'] = $page->title()->value();
+    $item['type'] = $page->intendedTemplate();
+
+    switch ($page->intendedTemplate()) {
+      case 'feed--live':
+        $item['date'] = $page->show_date()->value();
+        $item['link'] = (string) $page->tickets()->url();
+        break;
+      case 'feed--news':
+        $item['text'] = (string) $page->text()->kt();
+        break;
+      case 'feed--shop':
+        $item['link'] = (string) $page->shop_link()->url();
+        break;
+      case 'feed--video':
+        $item['text'] = $page->text()->isNotEmpty() ? (string) $page->text()->kt() : null;
+        break;
+      default:
+        break;
+    }
+
+    array_push($items, (object) $item);
+  }
+
+  
+  $json = (object) [
+    'items' => $items,
+  ];
+
+  return $json;
+}
 
 kirby()->set('route', array(
     'pattern' => 'api/initial-data',
@@ -21,6 +58,7 @@ kirby()->set('route', array(
           'description' => $description,
           'about' => (string) $about,
           'contact' => $contact,
+          'feed' => generate_feed_json(),
         ];
 
         if (site()->homePage()) {
@@ -28,6 +66,13 @@ kirby()->set('route', array(
         } else {
           return response::error($message = '404 Not found', $code = 404, $data = array($section));
         }
+    }
+));
+
+kirby()->set('route', array(
+    'pattern' => 'api/feed',
+    'action'  => function() {
+        return response::json(json_encode(generate_feed_json()));
     }
 ));
 

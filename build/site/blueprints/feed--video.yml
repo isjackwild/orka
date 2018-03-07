@@ -1,0 +1,24 @@
+title: Video
+
+pages: false
+files: false
+deletable: true
+preview: false
+icon: film
+options:
+  status: true
+  template: false
+  url: false
+
+fields:
+  title:
+    label: Title
+    required: true
+    validate:
+      maxLength: 100
+  text:
+    label: Text
+    type: textarea
+    required: false
+    validate:
+      maxLength: 1000

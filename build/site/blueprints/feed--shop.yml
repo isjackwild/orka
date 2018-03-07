@@ -1,0 +1,24 @@
+title: Shop
+
+pages: false
+files: false
+deletable: true
+preview: false
+icon: shopping-cart
+options:
+  status: true
+  template: false
+  url: false
+
+fields:
+  title:
+    label: Title
+    type: text
+    required: true
+    help: E.G. "Buy Leipzig III on Bandcamp"
+    validate:
+      maxLength: 100
+  shop_link:
+    help: Link to shop
+    type: url
+    required: true
