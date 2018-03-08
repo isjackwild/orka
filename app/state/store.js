@@ -12,6 +12,7 @@ const INITIAL = {
 	isAboutOverlayVisible: false,
 	isPageOverlayVisible: false,
 	feedFilter: 'feed--all',
+	currentPage: null,
 };
 
 const store = createStore((state, action) => (

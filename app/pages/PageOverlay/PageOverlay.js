@@ -4,15 +4,17 @@ import { connect } from 'preact-redux';
 import _ from 'lodash';
 
 
-const View = ({ title }) => (
-	<section class="page-overlay">
+const View = ({ title, isVisible }) => (
+	<section class={`page-overlay page-overlay--${isVisible ? 'visible' : 'hidden'}`}>
 		<h1>{title}</h1>
+		<a href='/'>Close</a>
 	</section>
 );
 
 class AboutOverlay extends Component {
 	state = {
 		data: null,
+		isVisible: false, 
 	}
 
 	constructor(props) {
@@ -23,13 +25,16 @@ class AboutOverlay extends Component {
 	}
 
 	componentDidMount() {
-		this.fetchPageData();
+		if (this.props.slug) this.fetchPageData();
 	}
 
-	componentDidUpdate() {
+	componentDidUpdate(lastProps, lastSlug) {
+		if (this.props.slug && this.props.slug !== lastProps.slug) return this.fetchPageData();
+		if (!this.props.slug && this.state.isVisible) return this.setState({ isVisible: false });
 	}
 
 	fetchPageData() {
+		console.log('fetch', this.props.slug);
 		fetch(`/api/page/${this.props.slug}`)
 		.then(response => response.json())
 		.then(this.onPageDataLoaded)
@@ -37,7 +42,7 @@ class AboutOverlay extends Component {
 	}
 
 	onPageDataLoaded(data) {
-		this.setState({ data });
+		this.setState({ data, isVisible: true });
 	}
 
 	onError(err) {
@@ -51,8 +56,8 @@ class AboutOverlay extends Component {
 };
 
 
-const mapStateToProps = ({ isAboutOverlayVisible }) => {
-	return {};
+const mapStateToProps = ({ currentPage }) => {
+	return { slug: currentPage };
 };
 
 const mapDispatchToProps = (dispatch) => {

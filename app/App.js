@@ -1,13 +1,11 @@
 // NPM
-import Router from 'preact-router';
-import { route } from 'preact-router';
-import Match from 'preact-router/match';
 import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
 
 // API
 import { onInitialLoaded, toggleAboutOverlay } from './state/actions';
 import store from './state/store';
+import { init as initRouter } from './routes';
 
 // Pages
 import Home from './pages/Home/Home';
@@ -30,6 +28,7 @@ class App extends Component {
 	}
 
 	componentWillMount() {
+		initRouter();
 		this.fetchInitialData();
 	}
 
@@ -39,8 +38,8 @@ class App extends Component {
 
 	fetchInitialData() {
 		fetch(`/api/initial-data`)
-		.then(response => response.json())
-		.then(this.onInitialDataLoaded);
+			.then(response => response.json())
+			.then(this.onInitialDataLoaded);
 	}
 
 	onInitialDataLoaded(data) {
@@ -49,18 +48,13 @@ class App extends Component {
 		this.setState({ data });
 	}
 
-	render({ isPhone, isInitialDataLoaded, showAbout }, { data }) {
+	render({ isPhone, isInitialDataLoaded }, { data }) {
 		if (!isInitialDataLoaded) return <span>loading...</span>;
 		return (
 			<div class="app">
 				<Home aboutText={data.about} feedItems={data.feed.items}/>
 				<Footer />
-				<Router>
-					<div default></div>
-					<PageOverlay path="/:slug" />
-					<Match path="/about">{ showAbout }</Match>
-					<Match path="/contact">{ showAbout }</Match>
-				</Router>
+				<PageOverlay/>
 				<AboutOverlay text={data.about} />
 			</div>
 		);
@@ -71,18 +65,9 @@ const mapStateToProps = ({ isPhone, isInitialDataLoaded }) => {
 	return { isPhone, isInitialDataLoaded };
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		showAbout: () => {
-			console.log('show about');
-			dispatch(toggleAboutOverlay());
-		},
-	};
-};
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps,
 )(App);
 
 

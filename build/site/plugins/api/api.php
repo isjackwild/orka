@@ -40,6 +40,20 @@ function generate_feed_json() {
   return $json;
 }
 
+
+
+function generate_page_json($page) {
+  $item = array();
+  $item['title'] = $page->title()->value();
+  $item['type'] = $page->intendedTemplate();
+  $item['text'] = $page->text()->isNotEmpty() ? (string) $page->text()->kt() : null;
+
+  return (object) $item;
+}
+
+
+
+
 kirby()->set('route', array(
     'pattern' => 'api/initial-data',
     'action'  => function() {
@@ -82,7 +96,7 @@ kirby()->set('route', array(
     'action'  => function($slug) {
         $page = page('feed')->children()->find($slug);
         if (!$page) return response::error($message = '404 Not found', $code = 404);
-        return response::json($page->toJson());
+        return response::json(json_encode(generate_page_json($page)));
     }
 ));
 
