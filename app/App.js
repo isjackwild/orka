@@ -53,7 +53,6 @@ class App extends Component {
 		return (
 			<div class="app">
 				<Home aboutText={data.about} feedItems={data.feed.items}/>
-				<Footer />
 				<PageOverlay/>
 				<AboutOverlay text={data.about} />
 			</div>

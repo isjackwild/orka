@@ -12,7 +12,7 @@ import FeedFilter from '../FeedFilter/FeedFilter';
 const View = ({ showAbout, position }) => (
 	<div class="sticky-nav__wrapper">
 		<nav class="sticky-nav" style={{ position }}>
-			<span onClick={showAbout}>ORKA</span>
+			<span class="about-button" onClick={showAbout}>ORKA</span>
 			<FeedFilter />
 		</nav>
 	</div>

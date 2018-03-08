@@ -3,10 +3,12 @@ import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
 import _ from 'lodash';
 
+import { FEED_CATEGORIES } from '../../CONSTANTS';
 
-const View = ({ title, isVisible }) => (
+const View = ({ title, type, isVisible }) => (
 	<section class={`page-overlay page-overlay--${isVisible ? 'visible' : 'hidden'}`}>
-		<h1>{title}</h1>
+		<span class="feed__item-type">{FEED_CATEGORIES[type]}</span>
+		<h1 class="feed__item-title">{title}</h1>
 		<a href='/'>Close</a>
 	</section>
 );

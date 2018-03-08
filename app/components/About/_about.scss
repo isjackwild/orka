@@ -1,0 +1,45 @@
+.about {
+	padding: 50px $side-padding--desktop $side-padding--desktop $side-padding--desktop;
+	color: #3D93FF;
+	background: #232323;
+}
+
+.about__text {
+	font-size: 40px;
+	line-height: 1.425em;
+	margin-bottom: 100px;
+}
+
+.about__text p:not(:last-child) {
+	margin-bottom: 1em;
+}
+
+.about__contact {
+	margin-bottom: 50px;
+	max-width: 1000px;
+}
+
+.contact-option {
+	display: inline-block;
+	margin-right: 100px;
+	margin-bottom: 40px;
+}
+
+.contact-option__name {
+	display: block;
+	line-height: 1em;
+	font-size: 16px;
+	margin-bottom: 7px;
+	letter-spacing: 0.015em;
+}
+
+.contact-option__email {
+	display: block;
+	line-height: 1em;
+	font-size: 28px;
+	letter-spacing: 0.01em;
+}
+
+.about__credits {
+	font-size: 13px;
+}

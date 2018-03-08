@@ -1,18 +1,17 @@
 .cover {
 	position: relative;
-	background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%);
 }
 
 .cover__canvas {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%);
+	background: #eee;
 }
 
 .cover,
 .cover__canvas {
 	width: 100%;
-	height: 56.5vw;
-	max-height: 90vh;
+	height: 55.5vw;
+	max-height: 88vh;
 }

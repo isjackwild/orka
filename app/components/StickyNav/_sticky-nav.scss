@@ -1,14 +1,28 @@
 .sticky-nav__wrapper {
 	display: block;
-	height: 60px;
-	background: blue;
+	height: 48px;
+	background: #363636;
 }
 
 .sticky-nav {
+	color: #DB6741;
+	background: #363636;
+	padding: 0 $side-padding--desktop;
 	display: block;
-	height: 60px;
+	height: 48px;
 	top: 0;
 	left: 0;
 	right: 0;
-	background: blue;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	line-height: 1em;
+}
+
+.about-button {
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	cursor: pointer;
+	user-select: none;
+	font-size: 14px;
 }

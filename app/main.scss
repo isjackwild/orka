@@ -1,20 +1,42 @@
 @import './scss/_reset.scss';
 @import './scss/_vars.scss';
+@import './scss/_mixins.scss';
 
 @import './pages/AboutOverlay/_about-overlay';
 @import './pages/PageOverlay/_page-overlay';
 
 @import './components/StickyNav/_sticky-nav';
 @import './components/Cover/_cover';
+@import './components/About/_about';
+@import './components/Feed/_feed';
+@import './components/FeedFilter/_feed-filter';
+
+@font-face {
+  font-family: 'CothamSans';
+  src: url('assets/fonts/CothamSans.eot') fomat('otf'); /* IE9 Compat Modes */
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'CothamSans', 'Helvetica', sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	background: #363636;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
 
 .home__content {
 	position: relative;
 	background: #ffffff;
 }
 
-.feed {
-	padding-bottom: 200vh;
-}
 
 .filter__option {
 	display: inline-block;
