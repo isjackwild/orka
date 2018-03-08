@@ -10,6 +10,7 @@ const INITIAL = {
 	isInitialDataLoaded: false,
 	isLoading: true,
 	isAboutOverlayVisible: false,
+	isPageOverlayVisible: false,
 	feedFilter: 'feed--all',
 };
 

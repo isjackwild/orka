@@ -22,7 +22,6 @@ const View = ({ aboutText, feedItems }) => (
 
 class Home extends Component {
 	render(props, state) {
-		console.log(props);
 		return <View { ...props } />;
 	}
 };

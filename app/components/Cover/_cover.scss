@@ -1,13 +1,13 @@
 .cover {
 	position: relative;
-	background: rgba(#00ff00, 0.2);
+	background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%);
 }
 
 .cover__canvas {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: #ff00ff;
+	background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%);
 }
 
 .cover,

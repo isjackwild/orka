@@ -1,11 +1,11 @@
 import {
-	ON_INITIAL_LOAD,
+	ON_INITIAL_LOADED,
 	TOGGLE_ABOUT_OVERLAY,
 	SET_FILTER,
 } from './action-types';
 
-export const onInitialLoad = () => {
-	return { type: ON_INITIAL_LOAD, value: true };
+export const onInitialLoaded = () => {
+	return { type: ON_INITIAL_LOADED, value: true };
 };
 
 export const toggleAboutOverlay = () => {

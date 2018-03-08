@@ -1,10 +1,10 @@
 import {
-	ON_INITIAL_LOAD,
+	ON_INITIAL_LOADED,
 	TOGGLE_ABOUT_OVERLAY,
 	SET_FILTER,
 } from './action-types';
 
-const onInitialLoad = (state) => {
+const onInitialLoaded = (state) => {
 	return { ...state, isInitialDataLoaded: true, isLoading: false };
 };
 
@@ -18,7 +18,7 @@ const setFilter = (state, { value }) => {
 
 
 const REDUCERS = {};
-REDUCERS[ON_INITIAL_LOAD] = onInitialLoad;
+REDUCERS[ON_INITIAL_LOADED] = onInitialLoaded;
 REDUCERS[TOGGLE_ABOUT_OVERLAY] = toggleAboutOverlay;
 REDUCERS[SET_FILTER] = setFilter;
 

@@ -11,7 +11,7 @@ import Video from './Items/Video';
 const Feed = ({ items, feedFilter }) => {
 	const filteredItems = (() => {
 		if (feedFilter === 'feed--all') return items;
-		return _.filter(items, item => feedFilter === item.type)
+		return _.filter(items, item => feedFilter === item.type);
 	})();
 
 	return (
@@ -22,11 +22,11 @@ const Feed = ({ items, feedFilter }) => {
 						case 'feed--live':
 							return <Live title={item.title} link={item.link} type={item.type} />;
 						case 'feed--news':
-							return <News title={item.title} type={item.type} />;
+							return <News title={item.title} type={item.type} slug={item.slug} />;
 						case 'feed--shop':
 							return <Shop title={item.title} link={item.link} type={item.type} />;
 						case 'feed--video':
-							return <Video title={item.title} type={item.type} />;
+							return <Video title={item.title} type={item.type} slug={item.slug} />;
 					}
 				})}
 			</ul>

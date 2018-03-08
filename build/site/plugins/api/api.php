@@ -16,12 +16,14 @@ function generate_feed_json() {
         break;
       case 'feed--news':
         $item['text'] = (string) $page->text()->kt();
+        $item['slug'] = (string) $page->slug();
         break;
       case 'feed--shop':
         $item['link'] = (string) $page->shop_link()->url();
         break;
       case 'feed--video':
         $item['text'] = $page->text()->isNotEmpty() ? (string) $page->text()->kt() : null;
+        $item['slug'] = (string) $page->slug();
         break;
       default:
         break;
@@ -72,6 +74,15 @@ kirby()->set('route', array(
     'pattern' => 'api/feed-items',
     'action'  => function() {
         return response::json(json_encode(generate_feed_json()));
+    }
+));
+
+kirby()->set('route', array(
+    'pattern' => 'api/page/(:any)',
+    'action'  => function($slug) {
+        $page = page('feed')->children()->find($slug);
+        if (!$page) return response::error($message = '404 Not found', $code = 404);
+        return response::json($page->toJson());
     }
 ));
 

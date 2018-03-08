@@ -2,6 +2,7 @@
 import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
 import _ from 'lodash';
+import { route } from 'preact-router';
 
 // API
 import { toggleAboutOverlay } from '../../state/actions';
@@ -11,7 +12,6 @@ import About from '../../components/About/About';
 
 // OTHER
 import Easing from '../../utils/Easings';
-console.log(Easing);
 
 const SCROLL_LENGTH = 1.33;
 
@@ -38,6 +38,7 @@ class AboutOverlay extends Component {
 		shimOpacity: 0,
 		contentHeight: null,
 		contentScroll: 0,
+		goHomeOnRemove: false,
 	}
 
 	constructor(props) {
@@ -48,6 +49,10 @@ class AboutOverlay extends Component {
 
 	componentDidMount() {
 		this.onResize();
+		if (this.props.isAboutOverlayVisible) {
+			this.show();
+			this.setState({ goHomeOnRemove: true });
+		}
 	}
 
 	componentDidUpdate({ isAboutOverlayVisible }) {
@@ -64,6 +69,8 @@ class AboutOverlay extends Component {
 		if (target.scrollTop === max) {
 			this.props.hide();
 			this.setState({ applyInnerTransform: true });
+			if (this.state.goHomeOnRemove) console.log('kljhasfkldjs')
+			if (this.state.goHomeOnRemove) route('/', true);
 		}
 	}
 

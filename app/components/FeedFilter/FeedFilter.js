@@ -9,8 +9,6 @@ import { setFilter } from '../../state/actions';
 // OTHER
 import { FEED_CATEGORIES } from '../../CONSTANTS';
 
-console.log(FEED_CATEGORIES);
-
 const Filter = ({ feedFilter, setFilter }) => (
 	<ul class="filter">
 		<li class={`filter__option filter__option--${feedFilter === 'feed--all' ? 'active' : 'inactive'}`}  data-filter="feed--all" data-active={feedFilter === 'feed--all'} onClick={setFilter}>All</li>
