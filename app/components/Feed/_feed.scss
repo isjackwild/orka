@@ -1,16 +1,16 @@
 .feed {
 	background: #363636;
 	color: #12843D;
-	padding: 50px $side-padding--desktop 130px $side-padding--desktop;
+	padding: 90px $side-padding--desktop 60px $side-padding--desktop;
 	min-height: calc(100vh - 48px);
 
 	@include mobile {
-		padding: 50px $side-padding--mobile 130px $side-padding--mobile;
+		padding: 50px $side-padding--mobile 50px $side-padding--mobile;
 	}
 }
 
 .feed__item {
-	margin-bottom: 60px;
+	margin-bottom: 80px;
 	border-bottom: 3px solid #12843D;
 	// padding-bottom: 0px;
 	font-size: 0;

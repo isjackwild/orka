@@ -13,6 +13,7 @@ const INITIAL = {
 	isPageOverlayVisible: false,
 	feedFilter: 'feed--all',
 	currentPage: null,
+	youtubeApiReady: false,
 };
 
 const store = createStore((state, action) => (

@@ -3,6 +3,7 @@ import {
 	TOGGLE_ABOUT_OVERLAY,
 	SET_FILTER,
 	SET_CURRENT_PAGE,
+	ON_YT_API_LOADED,
 } from './action-types';
 
 export const onInitialLoaded = () => {
@@ -19,5 +20,9 @@ export const setFilter = (value) => {
 
 export const setCurrentPage = (value) => {
 	return { type: SET_CURRENT_PAGE, value };
+};
+
+export const onYoutubeApiLoaded = (value) => {
+	return { type: ON_YT_API_LOADED, value };
 };
 

@@ -17,6 +17,7 @@
 	align-items: center;
 	justify-content: space-between;
 	line-height: 1em;
+	z-index: 1;
 
 	@include mobile {
 		padding: 0 $side-padding--mobile;

@@ -72,7 +72,6 @@ class ScrollOverlay extends Component {
 	}
 
 	onScroll({ target }) {
-		console.log('onScroll');
 		const max = target.scrollHeight - window.innerHeight;
 		const scrollOut = target.scrollTop - (this.state.contentHeight * (this.props.isPhone ? 1 : SCROLL_LENGTH) - window.innerHeight);
 		const shimOpacity = Math.min(1 - scrollOut / window.innerHeight, 1);
