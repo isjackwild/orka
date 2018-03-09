@@ -73,11 +73,11 @@ class ScrollOverlay extends Component {
 	}
 
 	onScroll({ target }) {
+		console.log('onScroll');
 		const max = target.scrollHeight - window.innerHeight;
 		const scrollOut = target.scrollTop - (this.state.contentHeight * (this.props.isPhone ? 1 : SCROLL_LENGTH) - window.innerHeight);
 		const shimOpacity = Math.min(1 - scrollOut / window.innerHeight, 1);
-		const contentScroll = this.props.isPhone ? target.scrollTop : Easing.Cubic.EaseOut(target.scrollTop / max) * this.state.contentHeight;
-
+		const contentScroll = this.props.isPhone ? target.scrollTop : (Easing.Cubic.EaseOut(target.scrollTop / max) * this.state.contentHeight);
 		this.setState({ shimOpacity, contentScroll: contentScroll * 1.01, });
 		if (target.scrollTop === max) {
 			this.props.hide();

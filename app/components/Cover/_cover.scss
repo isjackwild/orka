@@ -25,6 +25,7 @@
 	position: absolute;
 	bottom: 10px;
 	width: 50%;
+	max-width: 800px;
 
 	@include mobile {
 		width: 66%;
