@@ -46,7 +46,19 @@ function generate_page_json($page) {
   $item = array();
   $item['title'] = $page->title()->value();
   $item['type'] = $page->intendedTemplate();
+  $item['slug'] = (string) $page->slug();
   $item['text'] = $page->text()->isNotEmpty() ? (string) $page->text()->kt() : null;
+
+  switch ($page->intendedTemplate()) {
+      case 'feed--news':
+        $item['embeds'] = array();
+        foreach ($page->embeds()->toStructure() as $embed) {
+          array_push($item['embeds'], $embed->embedcode()->value());
+        }
+        break;
+      default:
+        break;
+    }
 
   return (object) $item;
 }
@@ -62,17 +74,29 @@ kirby()->set('route', array(
         $about = (string) page('about')->text()->kt();
         
         $contactPage = page('contact');
-        $contact = (object) [
+        $contact = [
           'instagram' => $contactPage->instagram()->isNotEmpty() ? (string) $contactPage->instagram()->url() : null,
           'twitter' => $contactPage->twitter()->isNotEmpty() ? (string) $contactPage->twitter()->url() : null,
           'facebook' => $contactPage->facebook()->isNotEmpty() ? (string) $contactPage->facebook()->url() : null,
+          'vimeo' => $contactPage->vimeo()->isNotEmpty() ? (string) $contactPage->vimeo()->url() : null,
+          'youtube' => $contactPage->youtube()->isNotEmpty() ? (string) $contactPage->youtube()->url() : null,
+          'bandcamp' => $contactPage->bandcamp()->isNotEmpty() ? (string) $contactPage->bandcamp()->url() : null,
+          'emails' => array(),
         ];
+
+        // $emails = array();
+        foreach ($contactPage->emails()->toStructure() as $email) {
+          array_push($contact['emails'], (object) [
+            'name' => $email->name()->value(),
+            'emailaddress' => $email->emailaddress()->value(),
+          ]);
+        }
 
         $json = (object) [
           'title' => $title,
           'description' => $description,
           'about' => (string) $about,
-          'contact' => $contact,
+          'contact' => (object) $contact,
           'feed' => generate_feed_json(),
         ];
 

@@ -15,14 +15,23 @@
 }
 
 .about__contact {
-	margin-bottom: 50px;
+	margin-bottom: 90px;
 	max-width: 1000px;
 }
 
-.contact-option {
+.about__contact-col {
 	display: inline-block;
 	margin-right: 100px;
 	margin-bottom: 40px;
+}
+
+.contact-option {
+	display: block;
+	margin-bottom: 40px;
+}
+
+.contact-option:last-child {
+	margin-bottom: 0;
 }
 
 .contact-option__name {
@@ -42,4 +51,20 @@
 
 .about__credits {
 	font-size: 13px;
+}
+
+.about__social {
+	margin-bottom: 10px;
+}
+
+.about__social-item {
+	width: 12px;
+	height: 12px;
+	background: #3D93FF;
+	display: inline-block;
+	margin-right: 22px;
+}
+
+.about__social-item:last-child {
+	margin-right: 0;
 }

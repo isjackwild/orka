@@ -2,14 +2,15 @@
 @import './scss/_vars.scss';
 @import './scss/_mixins.scss';
 
-@import './pages/AboutOverlay/_about-overlay';
-@import './pages/PageOverlay/_page-overlay';
-
 @import './components/StickyNav/_sticky-nav';
 @import './components/Cover/_cover';
 @import './components/About/_about';
 @import './components/Feed/_feed';
 @import './components/FeedFilter/_feed-filter';
+@import './components/ScrollOverlay/_scroll-overlay';
+
+@import './pages/Post/_post';
+
 
 @font-face {
   font-family: 'CothamSans';

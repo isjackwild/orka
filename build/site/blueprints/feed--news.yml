@@ -20,6 +20,18 @@ fields:
   text:
     label: Text
     type: textarea
-    required: true
-    validate:
-      maxLength: 1000
+    buttons:
+      - link
+      - email
+    required: false
+  embeds:
+    label: Embeds
+    type: structure
+    required: false
+    fields:
+      embedcode:
+        label: Embed Code
+        type: textarea
+        buttons: false
+        help: The full embed code from YouTube, Soundcloud, Spotify, etc.
+        required: true

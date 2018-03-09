@@ -1,0 +1,54 @@
+.scroll-overlay {
+	// background: rgba(#000, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding-bottom: 100vh;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+.scroll-overlay--hidden {
+	display: none;
+}
+
+.scroll-overlay__spacer {
+	min-height: 100vh;
+}
+ 
+.scroll-overlay__inner-scroller {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	min-height: 100vh;
+	transition: transform 0.01s ease-out;
+}
+
+.scroll-overlay__inner {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	min-height: 100vh;
+	background: #232323;
+	transition: transform 0.4s ease-out;
+}
+
+.scroll-overlay__inner--transform {
+	transform: translateY(-100%);
+}
+
+.scroll-overlay__shim {
+	background: transparent;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transition: background 0.1s ease-out 0.4s;
+}
+
+.scroll-overlay__shim--visible {
+	background: rgba(#E5311D, 0.8);
+}

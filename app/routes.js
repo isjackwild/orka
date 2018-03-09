@@ -15,7 +15,6 @@ const handleIndex = () => {
 };
 
 const handlePage = (context) => {
-	console.log(context);
 	store.dispatch(setCurrentPage(context.params.slug));
 };
 

@@ -23,3 +23,31 @@ fields:
   twitter:
     label: Twitter Profile
     type: url
+
+  vimeo:
+    label: Vimeo Profile
+    type: url
+
+  youtube:
+    label: YouTube Profile
+    type: url
+
+  bandcamp:
+    label: Bandcamp Profile
+    type: url
+
+  emails:
+    label: Email Contacts
+    type: structure
+    entry: >
+      {{name}}<br />
+      {{emailaddress}}
+    fields:
+      name:
+        label: Name
+        type: text
+        required: true
+      emailaddress:
+        label: Email
+        type: email
+        required: true

@@ -15,6 +15,7 @@ import PageOverlay from './pages/PageOverlay/PageOverlay';
 
 // Components
 import Footer from './components/Footer/Footer';
+import ScrollOverlay from './components/ScrollOverlay/ScrollOverlay';
 
 
 class App extends Component {
@@ -52,9 +53,9 @@ class App extends Component {
 		if (!isInitialDataLoaded) return <span>loading...</span>;
 		return (
 			<div class="app">
-				<Home aboutText={data.about} feedItems={data.feed.items}/>
+				<Home aboutText={data.about} feedItems={data.feed.items} contact={data.contact} />
 				<PageOverlay/>
-				<AboutOverlay text={data.about} />
+				<AboutOverlay text={data.about} contact={data.contact} />
 			</div>
 		);
 	}

@@ -1,4 +1,4 @@
-Title: Kirby Starterkit
+Title: Orka
 
 ----
 
@@ -6,8 +6,16 @@ Author: Bastian Allgeier GmbH
 
 ----
 
-Description: This is Kirby's Starterkit.
+Description: 
+
+The origins of ORKA date back more than a decade, when the band began crafting their own handmade instruments out of agricultural tools on a small farm in the Faroe Islands. From those humble beginnings, ORKA have created a bold electronic sound that has earned them two nominations for the Nordic Council Music Prize.
+
+Still based on those homemade instruments, the sounds are largely broken up into samples. The music remains distinctively ORKA, while ushering in an exciting new twist in their sound, morphing into hardened, cathartic techno with a neanderthal sense of pace.
 
 ----
 
-Copyright: © 2009–(date: Year) (link: http://getkirby.com text: The Kirby Team)
+Copyright: © 2009–(date: Year)
+
+----
+
+Googleanalytics: 

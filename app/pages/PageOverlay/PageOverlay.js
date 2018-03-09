@@ -2,21 +2,24 @@
 import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
 import _ from 'lodash';
+import page from 'page';
+
+import ScrollOverlay from '../../components/ScrollOverlay/ScrollOverlay';
+import Post from '../Post/Post';
 
 import { FEED_CATEGORIES } from '../../CONSTANTS';
 
-const View = ({ title, type, isVisible }) => (
-	<section class={`page-overlay page-overlay--${isVisible ? 'visible' : 'hidden'}`}>
-		<span class="feed__item-type">{FEED_CATEGORIES[type]}</span>
-		<h1 class="feed__item-title">{title}</h1>
-		<a href='/'>Close</a>
-	</section>
+
+const View = ({ title, type, text, embeds, isVisible, hide }) => (
+	<ScrollOverlay isVisible={isVisible} hide={hide}>
+		<Post title={title} type={type} text={text} embeds={embeds} isVisible={isVisible} />
+	</ScrollOverlay>
 );
 
-class AboutOverlay extends Component {
+class PageOverlay extends Component {
 	state = {
 		data: null,
-		isVisible: false, 
+		isVisible: false,
 	}
 
 	constructor(props) {
@@ -24,6 +27,7 @@ class AboutOverlay extends Component {
 
 		this.onPageDataLoaded = this.onPageDataLoaded.bind(this);
 		this.onError = this.onError.bind(this);
+		this.hide = this.hide.bind(this);
 	}
 
 	componentDidMount() {
@@ -36,7 +40,6 @@ class AboutOverlay extends Component {
 	}
 
 	fetchPageData() {
-		console.log('fetch', this.props.slug);
 		fetch(`/api/page/${this.props.slug}`)
 		.then(response => response.json())
 		.then(this.onPageDataLoaded)
@@ -47,13 +50,17 @@ class AboutOverlay extends Component {
 		this.setState({ data, isVisible: true });
 	}
 
+	hide() {
+		this.setState({ isVisible: false });
+		page('/');
+	}
+
 	onError(err) {
 		console.log(err);
 	}
 
 	render(props, state) {
-		console.log(props.data);
-		return <View { ...state.data } { ...state } onScroll={this.onScroll} />;
+		return <View { ...state.data } { ...state } onScroll={this.onScroll} hide={this.hide} />;
 	}
 };
 
@@ -69,4 +76,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(AboutOverlay);
+)(PageOverlay);

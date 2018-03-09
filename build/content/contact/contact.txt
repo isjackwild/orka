@@ -6,8 +6,37 @@ Instagram: https://www.instagram.com/isjackwild/
 
 ----
 
-Facebook: 
+Facebook: http://www.google.com
 
 ----
 
 Twitter: https://www.twitter.com/isjackwild/
+
+----
+
+Emails: 
+
+- 
+  name: Enquiries
+  emailaddress: orka@orkaonline.com
+- 
+  name: Booking (FR)
+  emailaddress: vincent@afx-booking.eu
+- 
+  name: Distribution (Cargo Records)
+  emailaddress: joe@cargorecords.co.uk
+- 
+  name: Distribution (Tutl Records)
+  emailaddress: kristianb@tutl.com
+
+----
+
+Vimeo: http://www.google.com
+
+----
+
+Youtube: http://www.google.com
+
+----
+
+Bandcamp: http://www.google.com
