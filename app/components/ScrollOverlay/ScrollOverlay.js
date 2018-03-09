@@ -15,12 +15,12 @@ import Easing from '../../utils/Easings';
 
 const SCROLL_LENGTH = 1.33;
 
-const View = ({ _id, classes, isVisible, onScroll, shimOpacity, applyInnerTransform, contentHeight, contentScroll, children }) => (
+const View = ({ isPhone, _id, classes, isVisible, onScroll, shimOpacity, applyInnerTransform, contentHeight, contentScroll, children }) => (
 	<div class={`scroll-overlay scroll-overlay--${_id} scroll-overlay--${isVisible ? 'visible' : 'hidden'}`} onScroll={onScroll}>
 		<div class={`scroll-overlay__shim ${!applyInnerTransform ? 'scroll-overlay__shim--visible' : ''}`} style={{ opacity: shimOpacity }}></div>
 		<div
 			class="scroll-overlay__spacer"
-			style={{ height: `${contentHeight * SCROLL_LENGTH}px` }}
+			style={{ height: `${contentHeight * (isPhone ? 1 : SCROLL_LENGTH)}px` }}
 		></div>
 		<div class="scroll-overlay__inner-scroller" style={{ transform: `translate3d(0, ${contentScroll * -1}px, 0)` }}>
 			<div
@@ -74,9 +74,9 @@ class ScrollOverlay extends Component {
 
 	onScroll({ target }) {
 		const max = target.scrollHeight - window.innerHeight;
-		const scrollOut = target.scrollTop - (this.state.contentHeight * SCROLL_LENGTH - window.innerHeight);
+		const scrollOut = target.scrollTop - (this.state.contentHeight * (this.props.isPhone ? 1 : SCROLL_LENGTH) - window.innerHeight);
 		const shimOpacity = Math.min(1 - scrollOut / window.innerHeight, 1);
-		const contentScroll = Easing.Cubic.EaseOut(target.scrollTop / max) * this.state.contentHeight;
+		const contentScroll = this.props.isPhone ? target.scrollTop : Easing.Cubic.EaseOut(target.scrollTop / max) * this.state.contentHeight;
 
 		this.setState({ shimOpacity, contentScroll: contentScroll * 1.01, });
 		if (target.scrollTop === max) {
@@ -104,15 +104,11 @@ class ScrollOverlay extends Component {
 };
 
 
-const mapStateToProps = ({ isVisible }) => {
-	return {};
+const mapStateToProps = ({ isPhone }) => {
+	return { isPhone };
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {};
-};
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps,
 )(ScrollOverlay);

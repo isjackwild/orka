@@ -11,7 +11,7 @@ function generate_feed_json() {
 
     switch ($page->intendedTemplate()) {
       case 'feed--live':
-        $item['date'] = $page->show_date()->value();
+        $item['date'] = (string) $page->date('d/m/Y', 'show_date');
         $item['link'] = $page->tickets()->isNotEmpty() ? (string) $page->tickets()->url() : null;
         break;
       case 'feed--news':

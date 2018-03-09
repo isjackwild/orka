@@ -17,6 +17,10 @@
 	align-items: center;
 	justify-content: space-between;
 	line-height: 1em;
+
+	@include mobile {
+		padding: 0 $side-padding--mobile;
+	}
 }
 
 .about-button {
@@ -25,4 +29,8 @@
 	cursor: pointer;
 	user-select: none;
 	font-size: 14px;
+
+	@include mobile {
+		font-size: 12px;
+	}
 }

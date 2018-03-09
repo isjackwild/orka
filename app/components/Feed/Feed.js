@@ -20,7 +20,7 @@ const Feed = ({ items, feedFilter }) => {
 				{filteredItems.map(item => {
 					switch(item.type) {
 						case 'feed--live':
-							return <Live title={item.title} link={item.link} type={item.type} />;
+							return <Live title={item.title} date={item.date} link={item.link} type={item.type} />;
 						case 'feed--news':
 							return <News title={item.title} type={item.type} slug={item.slug} />;
 						case 'feed--shop':

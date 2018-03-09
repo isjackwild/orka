@@ -3,6 +3,10 @@
 	color: #12843D;
 	padding: 50px $side-padding--desktop 130px $side-padding--desktop;
 	min-height: 100vh;
+
+	@include mobile {
+		padding: 20px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
+	}
 }
 
 .post__title {
@@ -17,6 +21,10 @@
 	letter-spacing: 0.01em;
 	line-height: 1.15em;
 	margin-bottom: 80px;
+
+	@include mobile {
+		font-size: 20px;
+	}
 }
 
 .post__text:last-child {

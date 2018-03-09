@@ -2,12 +2,21 @@
 	padding: 50px $side-padding--desktop $side-padding--desktop $side-padding--desktop;
 	color: #3D93FF;
 	background: #232323;
+
+	@include mobile {
+		padding: 20px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
+	}
 }
 
 .about__text {
 	font-size: 40px;
 	line-height: 1.425em;
 	margin-bottom: 100px;
+
+	@include mobile {
+		font-size: 24px;
+		margin-bottom: 60px;
+	}
 }
 
 .about__text p:not(:last-child) {
@@ -17,17 +26,30 @@
 .about__contact {
 	margin-bottom: 90px;
 	max-width: 1000px;
+
+	@include mobile {
+		margin-bottom: 60px;
+	}
 }
 
 .about__contact-col {
 	display: inline-block;
 	margin-right: 100px;
 	margin-bottom: 40px;
+
+	@include mobile {
+		margin-right: 0;
+		display: block;
+	}
 }
 
 .contact-option {
 	display: block;
 	margin-bottom: 40px;
+
+	@include mobile {
+		margin-bottom: 30px;
+	}
 }
 
 .contact-option:last-child {
@@ -40,6 +62,10 @@
 	font-size: 16px;
 	margin-bottom: 7px;
 	letter-spacing: 0.015em;
+
+	@include mobile {
+		font-size: 14px;
+	}
 }
 
 .contact-option__email {
@@ -47,6 +73,10 @@
 	line-height: 1em;
 	font-size: 28px;
 	letter-spacing: 0.01em;
+
+	@include mobile {
+		font-size: 24px;
+	}
 }
 
 .about__credits {

@@ -1,6 +1,10 @@
 .cover {
 	position: relative;
 	padding: 15px;
+
+	@include mobile {
+		padding: 6px;
+	}
 }
 
 .cover__canvas {
@@ -21,4 +25,9 @@
 	position: absolute;
 	bottom: 10px;
 	width: 50%;
+
+	@include mobile {
+		width: 66%;
+		bottom: 5px;
+	}
 }
