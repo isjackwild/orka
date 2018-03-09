@@ -5,6 +5,7 @@ import { init } from './drawing';
 const View = () => (
 	<section class="cover">
 		<canvas class="cover__canvas"></canvas>
+		<img class="cover__wordmark" src="assets/images/orka-wordmark.png" />
 	</section>
 );
 

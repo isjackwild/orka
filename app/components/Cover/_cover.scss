@@ -1,12 +1,13 @@
 .cover {
 	position: relative;
+	padding: 15px;
 }
 
 .cover__canvas {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: #eee;
+	background: #DDD;
 }
 
 .cover,
@@ -14,4 +15,10 @@
 	width: 100%;
 	height: 55.5vw;
 	max-height: 88vh;
+}
+
+.cover__wordmark {
+	position: absolute;
+	bottom: 10px;
+	width: 50%;
 }
