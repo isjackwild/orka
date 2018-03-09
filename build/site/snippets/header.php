@@ -30,6 +30,8 @@
   <meta name="twitter:description" content="<?= $site->title()->html() ?>">
   <meta name="twitter:image" content="assets/images/orka-card.jpg">
 
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
   <?= css('assets/css/main.css') ?>
 
 </head>
