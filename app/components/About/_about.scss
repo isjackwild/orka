@@ -12,6 +12,7 @@
 	font-size: 40px;
 	line-height: 1.425em;
 	margin-bottom: 100px;
+	max-width: 2000px;
 
 	@include mobile {
 		font-size: 24px;
