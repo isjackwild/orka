@@ -26,7 +26,7 @@ const Feed = ({ items, feedFilter }) => {
 						case 'feed--shop':
 							return <Shop title={item.title} link={item.link} type={item.type} />;
 						case 'feed--video':
-							return <Video title={item.title} type={item.type} slug={item.slug} />;
+							return <Video title={item.title} type={item.type} ytid={item.ytid} />;
 					}
 				})}
 			</ul>

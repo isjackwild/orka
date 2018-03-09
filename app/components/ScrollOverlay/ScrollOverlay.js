@@ -40,14 +40,13 @@ class ScrollOverlay extends Component {
 		_id: null,
 	}
 
-
 	constructor(props) {
 		super(props);
 		this.setState({ _id: this.generateId() })
 		this.onScroll = _.throttle(this.onScroll, 8).bind(this);
 		this.onResize = _.throttle(this.onResize, 111).bind(this);
 	}
-	
+
 	generateId() {
 		const S4 = () => {
 			return (((1+Math.random())*0x10000)|0).toString(16).substring(1);

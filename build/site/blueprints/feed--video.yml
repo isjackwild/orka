@@ -22,3 +22,10 @@ fields:
     required: false
     validate:
       maxLength: 1000
+  ytid:
+    label: YouTube Video ID
+    type: text
+    help: The YouTube ID (the bit after '?v=' in the YouTube URL)
+    required: true
+    validate:
+      maxLength: 12

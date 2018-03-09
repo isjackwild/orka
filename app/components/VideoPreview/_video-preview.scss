@@ -1,0 +1,25 @@
+.video-preview {
+	width: 240px;
+	height: 135px;
+	margin-bottom: 15px;
+	margin-top: 2px;
+	position: relative;
+
+	@include mobile {
+		width: 160px;
+		height: 90px;
+		margin-bottom: 3px;
+	}
+}
+
+.video-preview iframe {
+	width: 200%;
+	height: 200%;
+	transform: scale(0.5);
+	transform-origin: top left;
+	pointer-events: none;
+
+	@include mobile {
+		pointer-events: auto;
+	}
+}

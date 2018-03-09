@@ -22,8 +22,7 @@ function generate_feed_json() {
         $item['link'] = (string) $page->shop_link()->url();
         break;
       case 'feed--video':
-        $item['text'] = $page->text()->isNotEmpty() ? (string) $page->text()->kt() : null;
-        $item['slug'] = (string) $page->slug();
+        $item['ytid'] = $page->ytid()->value();
         break;
       default:
         break;
