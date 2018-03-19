@@ -11,7 +11,7 @@ import FeedFilter from '../FeedFilter/FeedFilter';
 
 const View = ({ showAbout, position }) => (
 	<div class="sticky-nav__wrapper">
-		<nav class="sticky-nav" style={{ position }}>
+		<nav class={`sticky-nav sticky-nav--${position}`} style={{ position }}>
 			<span class="about-button" onClick={showAbout}>ORKA</span>
 			<FeedFilter />
 		</nav>
@@ -41,9 +41,9 @@ class StickyNav extends Component {
 		if (this.state.offsetTop === null) return;
 		const st = document.documentElement.scrollTop || document.body.scrollTop || 0;
 		
-		if (st > this.state.offsetTop && this.state.position === 'relative') {
+		if (st + 20 >= this.state.offsetTop && this.state.position === 'relative') {
 			this.setState({ position: 'fixed' });
-		} else if (st <= this.state.offsetTop && this.state.position === 'fixed') {
+		} else if (st + 20 < this.state.offsetTop && this.state.position === 'fixed') {
 			this.setState({ position: 'relative' });
 		}
 	}

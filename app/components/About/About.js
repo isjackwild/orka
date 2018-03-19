@@ -9,7 +9,7 @@ const ContactOption = ({ name, email }) => (
 	</div>
 );
 
-const About = ({ text, contact }) => {
+const View = ({ text, contact }) => {
 	const emailChunks = _.chunk(contact.emails, 2);
 	return (
 		<section class="about">
@@ -36,6 +36,16 @@ const About = ({ text, contact }) => {
 	)
 };
 
+
+class About extends Component {
+	shouldComponentUpdate() {
+		return false;
+	}
+
+	render(props, state) {
+		return <View { ...props } { ...state } />;
+	}
+}
 
 export default About;
 

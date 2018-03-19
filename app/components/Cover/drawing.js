@@ -5,7 +5,7 @@ import { convertToRange } from '../../utils/maths.js';
 let canvas, ctx, noise;
 let w, h, raf;
 
-let crntRow = 0, crntX = 0, crntY = 0, colourOne, colourTwo, colourThree, waveLength, waveHeight, paused;
+let crntRow = 0, crntX = 0, crntY = 0, colourOne, colourTwo, colourThree, waveLength, waveHeight, paused = true;
 const colCurrentYs = [];
 
 const lightCols = [
@@ -36,7 +36,7 @@ export const init = () => {
 	document.addEventListener('resize', onResize);
 	reset();
 	onResize();
-	animate();
+	play();
 };
 
 const reset = () => {
@@ -121,5 +121,14 @@ const animate = () => {
 };
 
 
-export const pause = () => cancelAnimationFrame(raf);
-export const play = () => raf = requestAnimationFrame(animate);
+export const pause = () => {
+	if (paused) return;
+	paused = true;
+	cancelAnimationFrame(raf);
+}
+
+export const play = () => {
+	if (!paused) return;
+	paused = false;
+	raf = requestAnimationFrame(animate);
+};
