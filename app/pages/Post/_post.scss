@@ -1,5 +1,5 @@
 .post {
-	background: #484848;
+	background: #333333;
 	color: #12843D;
 	padding: 50px $side-padding--desktop 130px $side-padding--desktop;
 	min-height: 100vh;
@@ -47,6 +47,7 @@
 .post__embed iframe {
 	width: 100%;
 	margin-bottom: 20px;
+	background: #12843D;
 }
 
 

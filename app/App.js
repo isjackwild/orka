@@ -50,7 +50,7 @@ class App extends Component {
 	}
 
 	render({ isPhone, isInitialDataLoaded }, { data }) {
-		if (!isInitialDataLoaded) return <span>loading...</span>;
+		if (!isInitialDataLoaded) return null;
 		return (
 			<div class="app">
 				<Home aboutText={data.about} feedItems={data.feed.items} contact={data.contact} />

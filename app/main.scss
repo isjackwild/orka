@@ -26,7 +26,7 @@ body {
 	font-family: 'CothamSans', 'Helvetica', sans-serif;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
-	background: #363636;
+	background: #000000;
 }
 
 a {
@@ -34,9 +34,18 @@ a {
 	color: inherit;
 }
 
+
 .home__content {
 	position: relative;
 	background: #ffffff;
+	transition:
+		opacity 1s ease-out,
+		transform 2.5s cubic-bezier(0, 1, 0.5, 1);
+}
+
+.home__content--transform {
+	transform: translate3d(0, 50vh, 0);
+	opacity: 0;
 }
 
 

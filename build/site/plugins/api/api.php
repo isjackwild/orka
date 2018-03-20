@@ -17,6 +17,13 @@ function generate_feed_json() {
       case 'feed--news':
         $item['text'] = (string) $page->text()->kt();
         $item['slug'] = (string) $page->slug();
+        $item['images'] = array();
+        foreach ($page->images() as $image) {
+          $sizes = array(
+            'thumb' => thumb($image, array('height' => 150))->url(),
+          );
+          array_push($item['images'], $sizes);
+        }
         break;
       case 'feed--shop':
         $item['link'] = (string) $page->shop_link()->url();
@@ -53,6 +60,16 @@ function generate_page_json($page) {
         $item['embeds'] = array();
         foreach ($page->embeds()->toStructure() as $embed) {
           array_push($item['embeds'], $embed->embedcode()->value());
+        }
+        $item['images'] = array();
+        foreach ($page->images() as $image) {
+          $sizes = array(
+            'thumb' => thumb($image, array('height' => 150))->url(),
+            'sd' => thumb($image, array('width' => 512))->url(),
+            'hd' => thumb($image, array('width' => 1024))->url(),
+            'full' => $image->url(),
+          );
+          array_push($item['images'], $sizes);
         }
         break;
       default:

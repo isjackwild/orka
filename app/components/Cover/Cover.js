@@ -3,12 +3,12 @@ import { h, render, Component } from 'preact';
 import { init, play, pause} from './drawing';
 import _ from 'lodash';
 
-const View = ({ opacity, wrapperFixed }) => (
+const View = ({ opacity, wrapperFixed, backToTop}) => (
 	<section class="cover">
-		<div class={`cover__canvas-wrapper ${wrapperFixed ? 'cover__canvas-wrapper--fixed' : null }`}>
-			<canvas class="cover__canvas" style={{ opacity }}></canvas>
+		<div class={`cover__canvas-wrapper ${wrapperFixed ? 'cover__canvas-wrapper--fixed' : null }`} onClick={backToTop}>
+			<canvas class="cover__canvas"></canvas>
 		</div>
-		<img class="cover__wordmark" src="assets/images/orka-wordmark.png" />
+		<img class="cover__wordmark" src="assets/images/orka-wordmark.png" style={{ opacity }} />
 	</section>
 );
 
@@ -38,7 +38,7 @@ class Cover extends Component {
 		if (this.state.offsetTop === null) return;
 		const st = document.documentElement.scrollTop || document.body.scrollTop || 0;
 		
-		const opacity = Math.max(1 - (st / this.state.height), 0.8);
+		const opacity = Math.max(1 - (st / this.state.height), 0);
 		this.setState({ opacity });
 
 		// const imageHeight = Math.max(this.state.height - st, 20) + 'px';
@@ -62,8 +62,12 @@ class Cover extends Component {
 		this.onScroll();
 	}
 
+	backToTop() {
+		console.log('back to top');
+	}
+
 	render(props, state) {
-		return <View { ...props } { ...state } />;
+		return <View { ...props } { ...state } backToTop={this.backToTop} />;
 	}
 };
 

@@ -35,6 +35,7 @@ class StickyNav extends Component {
 		this.onResize();
 		window.addEventListener('resize', this.onResize);
 		window.addEventListener('scroll', this.onScroll);
+		setTimeout(this.onResize, 2500) //get size after intro initial transform;
 	}
 
 	onScroll() {

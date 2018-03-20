@@ -20,13 +20,13 @@ const Feed = ({ items, feedFilter }) => {
 				{filteredItems.map(item => {
 					switch(item.type) {
 						case 'feed--live':
-							return <Live title={item.title} date={item.date} link={item.link} type={item.type} />;
+							return <Live { ...item } />;
 						case 'feed--news':
-							return <News title={item.title} type={item.type} slug={item.slug} />;
+							return <News { ...item } />;
 						case 'feed--shop':
-							return <Shop title={item.title} link={item.link} type={item.type} />;
+							return <Shop { ...item } />;
 						case 'feed--video':
-							return <Video title={item.title} type={item.type} ytid={item.ytid} />;
+							return <Video { ...item } />;
 					}
 				})}
 			</ul>
