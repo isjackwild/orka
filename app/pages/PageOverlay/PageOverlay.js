@@ -7,6 +7,9 @@ import page from 'page';
 import ScrollOverlay from '../../components/ScrollOverlay/ScrollOverlay';
 import Post from '../Post/Post';
 
+import { setPageLoading } from '../../state/actions';
+import store from '../../state/store';
+
 import { FEED_CATEGORIES } from '../../CONSTANTS';
 
 
@@ -40,6 +43,8 @@ class PageOverlay extends Component {
 	}
 
 	fetchPageData() {
+		store.dispatch(setPageLoading(true));
+
 		fetch(`/api/page/${this.props.slug}`)
 		.then(response => response.json())
 		.then(this.onPageDataLoaded)
@@ -47,6 +52,9 @@ class PageOverlay extends Component {
 	}
 
 	onPageDataLoaded(data) {
+		setTimeout(() => {
+			store.dispatch(setPageLoading(false))
+		}, 333);
 		this.setState({ data, isVisible: true });
 	}
 
@@ -56,6 +64,9 @@ class PageOverlay extends Component {
 	}
 
 	onError(err) {
+		setTimeout(() => {
+			store.dispatch(setPageLoading(false))
+		}, 333);
 		console.log(err);
 	}
 

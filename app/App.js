@@ -49,10 +49,10 @@ class App extends Component {
 		this.setState({ data });
 	}
 
-	render({ isPhone, isInitialDataLoaded }, { data }) {
+	render({ isPhone, isInitialDataLoaded, isPageLoading }, { data }) {
 		if (!isInitialDataLoaded) return null;
 		return (
-			<div class="app">
+			<div class={`app ${isPageLoading ? 'app--loading' : ''}`}>
 				<Home aboutText={data.about} feedItems={data.feed.items} contact={data.contact} />
 				<PageOverlay/>
 				<AboutOverlay text={data.about} contact={data.contact} />
@@ -61,8 +61,8 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = ({ isPhone, isInitialDataLoaded }) => {
-	return { isPhone, isInitialDataLoaded };
+const mapStateToProps = ({ isPhone, isInitialDataLoaded, isPageLoading }) => {
+	return { isPhone, isInitialDataLoaded, isPageLoading };
 };
 
 

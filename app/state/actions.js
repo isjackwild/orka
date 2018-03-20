@@ -3,6 +3,7 @@ import {
 	TOGGLE_ABOUT_OVERLAY,
 	SET_FILTER,
 	SET_CURRENT_PAGE,
+	SET_PAGE_LOADING,
 	ON_YT_API_LOADED,
 } from './action-types';
 
@@ -22,7 +23,12 @@ export const setCurrentPage = (value) => {
 	return { type: SET_CURRENT_PAGE, value };
 };
 
+export const setPageLoading = (value) => {
+	return { type: SET_PAGE_LOADING, value };
+};
+
 export const onYoutubeApiLoaded = (value) => {
+	console.log('!');
 	return { type: ON_YT_API_LOADED, value };
 };
 

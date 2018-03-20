@@ -34,6 +34,10 @@ a {
 	color: inherit;
 }
 
+.app--loading,
+.app--loading * {
+	cursor: wait !important;
+}
 
 .home__content {
 	position: relative;

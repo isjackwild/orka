@@ -8,6 +8,7 @@
 	padding-bottom: 100vh;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
+	backface-visibility: hidden;
 	z-index: 2;
 }
 
@@ -33,14 +34,15 @@
 	width: 100%;
 	min-height: 100vh;
 	background: #232323;
-	transition: transform 0.4s ease-out;
+	transition: transform 1.4s cubic-bezier(0, 1, 0.5, 1);
+	transform: translateZ(0);
 	box-shadow:
 		0 1px 2px rgba(#000, 0.15),
 		0 0px 15px rgba(#000, 0.33);
 }
 
 .scroll-overlay__inner--transform {
-	transform: translateY(-100%);
+	transform: translate3d(0, -100%, 0);
 }
 
 .scroll-overlay__shim {
