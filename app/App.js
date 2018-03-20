@@ -26,15 +26,12 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.onInitialDataLoaded = this.onInitialDataLoaded.bind(this);
+		console.log('TODO: Draw a cool Orka whale, and use varios patterns for loading images backrounds')
 	}
 
 	componentWillMount() {
 		initRouter();
 		this.fetchInitialData();
-	}
-
-	componentDidMount() {
-		console.log('mounted App');
 	}
 
 	fetchInitialData() {
@@ -44,7 +41,6 @@ class App extends Component {
 	}
 
 	onInitialDataLoaded(data) {
-		console.log(data);
 		store.dispatch(onInitialLoaded());
 		this.setState({ data });
 	}

@@ -20,23 +20,20 @@ import { FEED_CATEGORIES } from '../../../CONSTANTS';
 // 	}
 // };
 
-const News = ({ title, type, slug, images }) => {
-	console.log(images);
-	return (
-		<li class="feed__item feed__item--news">
-			<span class="feed__item-type">{FEED_CATEGORIES[type]}</span>
-			<div class="feed__item-title-wrapper">
-				<a href={slug}><h1 class="feed__item-title">{title}</h1></a>
-				<a class="feed__item-link" href={slug}>Read More →</a>
-			</div>
-			{images.length ?
-				<a href={slug}><div class="feed__images">
-					{ images.map((sizes) => <ImageLoader src={sizes.thumb} className="feed__image" />) }
-				</div></a>
-			: null}
-		</li>
-	)
-};
+const News = ({ title, type, slug, images }) => (
+	<li class="feed__item feed__item--news">
+		<span class="feed__item-type">{FEED_CATEGORIES[type]}</span>
+		<div class="feed__item-title-wrapper">
+			<h1 class="feed__item-title"><a href={slug}>{title}</a></h1>
+			<a class="feed__item-link" href={slug}>Read More →</a>
+		</div>
+		{images.length ?
+			<a href={slug}><div class="feed__images">
+				{ images.map((sizes) => <ImageLoader src={sizes.thumb} className="feed__image" />) }
+			</div></a>
+		: null}
+	</li>
+);
 
 
 export default News;

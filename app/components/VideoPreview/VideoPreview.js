@@ -25,11 +25,12 @@ class VideoPreview extends Component {
 	}
 
 	componentDidMount() {
-		// this.connectAPI();
+		if (this.props.isMobile) return
 		if (this.props.youtubeApiReady) return this.onYouTubeIframeAPIReady();
 	}
 
 	componentDidUpdate(lastProps) {
+		if (this.props.isMobile) return
 		if (!lastProps.youtubeApiReady && this.props.youtubeApiReady) return this.onYouTubeIframeAPIReady();
 	}
 
@@ -39,20 +40,6 @@ class VideoPreview extends Component {
 		};
 		return (S4()+S4());
 	}
-
-	// connectAPI() {
-	// 	// if (this.props.youtubeApiReady) return this.onYouTubeIframeAPIReady();
-
-	// 	const tag = document.createElement('script');
-	// 	tag.type = 'text/javascript';
-	// 	tag.src = '//www.youtube.com/iframe_api';
-	// 	tag.id = 'youtubeApi';
-
-	// 	const firstScriptTag = document.getElementsByTagName('script')[0];
-	// 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-	// 	window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this);
-	// }
 
 	onYouTubeIframeAPIReady() {
 		this.setState({ previewLoading: true });
@@ -86,7 +73,6 @@ class VideoPreview extends Component {
 	}
 
 	onPlayerReady(e) {
-		console.log('on ready');
 		this.ytPlayer.setVolume(0);
 		this.ytPlayer.loadVideoById({
 			'videoId': this.props.youtubeId,
@@ -109,16 +95,22 @@ class VideoPreview extends Component {
 		this.setState({ playStarted: true, previewLoading: false });
 	}
 
-	render(props, { playStarted }) {
+	render({ fallbackImage, isMobile }, { playStarted }) {
 		return (
-			<div class={`video-preview video-preview--${playStarted ? 'visible' : 'hidden'}`} ><div class="video-preview__player" id={`video-preview__player--${this.randomId}`}></div></div>
+			<div class={`video-preview video-preview--${playStarted ? 'visible' : 'hidden'}`}>
+				{ isMobile ? 
+					<div class="video-preview__fallback-image" style={{backgroundImage: `url(${fallbackImage})`}}></div>
+					:
+					<div class="video-preview__player" id={`video-preview__player--${this.randomId}`}></div>
+				}
+			</div>
 		);
 	}
 }
 
 
-const mapStateToProps = ({ youtubeApiReady }) => {
-	return { youtubeApiReady: youtubeApiReady };
+const mapStateToProps = ({ youtubeApiReady, isMobile }) => {
+	return { youtubeApiReady: youtubeApiReady, isMobile };
 };
 
 

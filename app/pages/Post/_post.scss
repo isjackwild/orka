@@ -5,7 +5,7 @@
 	min-height: 100vh;
 
 	@include mobile {
-		padding: 20px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
+		padding: 40px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
 	}
 }
 

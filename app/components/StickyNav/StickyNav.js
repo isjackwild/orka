@@ -2,6 +2,7 @@
 import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
 import _ from 'lodash';
+import PubSub from 'pubsub-js';
 
 // API
 import { toggleAboutOverlay } from '../../state/actions';
@@ -35,6 +36,7 @@ class StickyNav extends Component {
 		this.onResize();
 		window.addEventListener('resize', this.onResize);
 		window.addEventListener('scroll', this.onScroll);
+		PubSub.subscribe('content.resize', this.onResize);
 		setTimeout(this.onResize, 2500) //get size after intro initial transform;
 	}
 
@@ -50,7 +52,6 @@ class StickyNav extends Component {
 	}
 
 	onResize() {
-		// console.dir(document.querySelector('.sticky-nav__wrapper'));
 		const rect = document.querySelector('.sticky-nav__wrapper').getBoundingClientRect();
 		const st = document.documentElement.scrollTop || document.body.scrollTop || 0;
 		const offsetTop = rect.top + st;

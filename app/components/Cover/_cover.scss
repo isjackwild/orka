@@ -62,6 +62,9 @@
 	// height: calc(100vh - 40px);
 	// height: 55.5vw;
 	// max-height: 88vh;
+	@include mobile {
+		height: 25vh;
+	}
 }
 
 .cover__wordmark {
@@ -79,7 +82,8 @@
 	// display: none;
 
 	@include mobile {
-		width: 66%;
+		width: 180px;
 		bottom: 5px;
+		left: 15px;
 	}
 }

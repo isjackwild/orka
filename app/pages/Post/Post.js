@@ -22,7 +22,7 @@ const View = ({ title, type, text, embeds, images, isVisible }) => (
 				: null}
 				{images && images.length ?
 					<div class="post__images">
-						{ images.map(i => <ImageLoader className="post__image" src={i.hd}/>) }
+						{ images.map(i => <ImageLoader className="post__image" src={i.hd} />) }
 					</div>
 				: null}
 			</div>
@@ -36,7 +36,6 @@ class Post extends Component {
 	}
 
 	render(props) {
-		console.log(props);
 		return <View { ...props } />;
 	}
 }

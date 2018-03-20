@@ -1,5 +1,6 @@
 // NPM
 import { h, render, Component } from 'preact';
+import PubSub from 'pubsub-js';
 
 
 class ImageLoader extends Component {
@@ -7,10 +8,21 @@ class ImageLoader extends Component {
 		loaded: false,
 	}
 
+	constructor(props) {
+		super(props);
+
+		this.onLoad = this.onLoad.bind(this);
+	}
+
 	componentDidMount() {
 		const loadImg = new Image();
-		loadImg.onload = () => this.setState({ loaded: true });
+		loadImg.onload = this.onLoad;
 		loadImg.src = this.props.src;
+	}
+
+	onLoad() {
+		this.setState({ loaded: true });
+		PubSub.publish('content.resize');
 	}
 
 	render({ src, className }, { loaded }) {

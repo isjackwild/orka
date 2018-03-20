@@ -1,7 +1,8 @@
 title: Video
 
 pages: false
-files: false
+files:
+  type: image
 deletable: true
 preview: false
 icon: film
@@ -29,3 +30,8 @@ fields:
     required: true
     validate:
       maxLength: 12
+  fallbackImage:
+    label: Fallback image
+    type: image
+    help: A thumbnail of the video, to be displayed on mobile instead of the looping preview.
+    required: true

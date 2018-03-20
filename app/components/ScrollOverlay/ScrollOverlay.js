@@ -3,6 +3,7 @@ import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
 import _ from 'lodash';
 import page from 'page';
+import PubSub from 'pubsub-js';
 
 // API
 import { toggleAboutOverlay } from '../../state/actions';
@@ -13,7 +14,7 @@ import About from '../../components/About/About';
 // OTHER
 import Easing from '../../utils/Easings';
 
-const SCROLL_LENGTH = 333;
+const SCROLL_LENGTH = 88;
 
 const View = ({ isPhone, _id, classes, isVisible, onScroll, shimOpacity, applyInnerTransform, contentHeight, contentScroll, children }) => (
 	<div class={`scroll-overlay scroll-overlay--${_id} scroll-overlay--${isVisible ? 'visible' : 'hidden'}`} onScroll={onScroll}>
@@ -63,6 +64,7 @@ class ScrollOverlay extends Component {
 
 	componentDidMount() {
 		this.onResize();
+		PubSub.subscribe('content.resize', this.onResize);
 		if (this.props.isVisible) {
 			this.show();
 		}
@@ -76,7 +78,7 @@ class ScrollOverlay extends Component {
 		const max = target.scrollHeight - window.innerHeight;
 		const scrollOut = target.scrollTop - (this.state.contentHeight + (this.props.isPhone ? 0 : SCROLL_LENGTH) - window.innerHeight);
 		const shimOpacity = Math.min(1 - scrollOut / window.innerHeight, 1);
-		const contentScroll = this.props.isPhone ? target.scrollTop : (Easing.Cubic.EaseOut(target.scrollTop / max) * this.state.contentHeight);
+		const contentScroll = this.props.isPhone ? target.scrollTop : (Easing.Sinusoidal.EaseOut(target.scrollTop / max) * this.state.contentHeight);
 		this.setState({ shimOpacity, contentScroll: contentScroll * 1.01, });
 		if (target.scrollTop === max) {
 			this.props.hide();

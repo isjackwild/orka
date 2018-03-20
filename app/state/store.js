@@ -6,6 +6,7 @@ import './actions';
 const md = new MobileDetect(window.navigator.userAgent);
 const INITIAL = {
 	isPhone: md.phone(),
+	isMobile: md.mobile(),
 	isDesktop: !md.mobile(),
 	isInitialDataLoaded: false,
 	isLoading: true,

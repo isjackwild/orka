@@ -30,6 +30,7 @@ function generate_feed_json() {
         break;
       case 'feed--video':
         $item['ytid'] = $page->ytid()->value();
+        $item['fallbackImage'] = thumb($page->images()->find($page->fallbackImage()), array('height' => 250))->url();
         break;
       default:
         break;
