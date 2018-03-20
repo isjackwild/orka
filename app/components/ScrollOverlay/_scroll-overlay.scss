@@ -59,3 +59,22 @@
 	// background: rgba(#E5311D, 1);
 	background: rgba(#bbb, 1);
 }
+
+.scroll-overlay__hint {
+	position: fixed;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 0.145em;
+	color: #ce1703;
+	line-height: 1.5em;
+	-webkit-font-smoothing: auto;
+	opacity: 0;
+}
+
+.scroll-overlay__hint--visible {
+	opacity: 1;
+	transition: opacity 0.1s ease-out 0.4s;
+}

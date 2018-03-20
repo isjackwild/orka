@@ -1,23 +1,24 @@
 // NPM
 import { h, render, Component } from 'preact';
 
+import ImageLoader from '../../ImageLoader/ImageLoader';
 import { FEED_CATEGORIES } from '../../../CONSTANTS';
 
-class FeedImage extends Component {
-	state = {
-		loaded: false,
-	}
+// class FeedImage extends Component {
+// 	state = {
+// 		loaded: false,
+// 	}
 
-	componentDidMount() {
-		const loadImg = new Image();
-		loadImg.onload = () => this.setState({ loaded: true });
-		loadImg.src = this.props.src;
-	}
+// 	componentDidMount() {
+// 		const loadImg = new Image();
+// 		loadImg.onload = () => this.setState({ loaded: true });
+// 		loadImg.src = this.props.src;
+// 	}
 
-	render({ src }, { loaded }) {
-		return <div class="feed__image-wrapper"><img class={`feed__image feed__image--${loaded ? 'loaded' : 'loading'}`} src={src} /></div>
-	}
-};
+// 	render({ src }, { loaded }) {
+// 		return <div class="feed__image-wrapper"><img class={`feed__image feed__image--${loaded ? 'loaded' : 'loading'}`} src={src} /></div>
+// 	}
+// };
 
 const News = ({ title, type, slug, images }) => {
 	console.log(images);
@@ -30,7 +31,7 @@ const News = ({ title, type, slug, images }) => {
 			</div>
 			{images.length ?
 				<a href={slug}><div class="feed__images">
-					{ images.map((sizes) => <FeedImage src={sizes.thumb} />) }
+					{ images.map((sizes) => <ImageLoader src={sizes.thumb} className="feed__image" />) }
 				</div></a>
 			: null}
 		</li>

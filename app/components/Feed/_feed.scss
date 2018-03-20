@@ -79,21 +79,9 @@
 	position: relative;
 }
 
-.feed__image-wrapper {
-	background: rgba(#12843D, 1);
-	display: inline-block;
-	margin-right: 10px;
-	height: 100%;
-}
-
 .feed__image {
 	height: 100%;
 	width: auto;
-	opacity: 0;
-}
-
-.feed__image--loaded {
-	opacity: 1;
-	transition: opacity 0.66s ease-in;
+	margin-right: 10px;
 }
 

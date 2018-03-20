@@ -13,9 +13,9 @@ import store from '../../state/store';
 import { FEED_CATEGORIES } from '../../CONSTANTS';
 
 
-const View = ({ title, type, text, embeds, isVisible, hide }) => (
+const View = ({ title, type, text, embeds, images, isVisible, hide }) => (
 	<ScrollOverlay isVisible={isVisible} hide={hide}>
-		<Post title={title} type={type} text={text} embeds={embeds} isVisible={isVisible} />
+		<Post title={title} type={type} text={text} embeds={embeds} images={images} isVisible={isVisible} />
 	</ScrollOverlay>
 );
 

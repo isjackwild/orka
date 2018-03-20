@@ -56,7 +56,6 @@ class VideoPreview extends Component {
 
 	onYouTubeIframeAPIReady() {
 		this.setState({ previewLoading: true });
-		console.log(this.props.youtubeId);
 
 		const params = {
 			height: '200%',
