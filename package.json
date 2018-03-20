@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "fastclick": "^1.0.6",
+    "gsap": "^1.20.4",
     "gulp-util": "^3.0.7",
     "lodash": "^4.13.1",
     "mobile-detect": "^1.4.1",

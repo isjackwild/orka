@@ -2,6 +2,9 @@
 import { h, render, Component } from 'preact';
 import { init, play, pause} from './drawing';
 import _ from 'lodash';
+import 'gsap/TweenLite';
+import 'gsap/ScrollToPlugin';
+import 'gsap/EasePack';
 
 const View = ({ opacity, wrapperFixed, backToTop}) => (
 	<section class="cover">
@@ -63,7 +66,7 @@ class Cover extends Component {
 	}
 
 	backToTop() {
-		console.log('back to top');
+		TweenLite.to(window, 1.5, { scrollTo: 0, ease: Power3.easeOut });
 	}
 
 	render(props, state) {
