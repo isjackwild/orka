@@ -17,7 +17,7 @@ const View = ({ title, type, text, embeds, images, isVisible }) => (
 				<div class="post__text" dangerouslySetInnerHTML={{ __html: text }}>hey there</div>
 				{embeds && embeds.length ?
 					<div class="post__embeds">
-						{ embeds.map(e => <div class="post__embed" dangerouslySetInnerHTML={{ __html: e }}>lkjlkj</div>) }
+						{ embeds.map(e => <div class={`post__embed placeholder placeholder--${Math.floor(Math.random() * 12)}`} dangerouslySetInnerHTML={{ __html: e }}>lkjlkj</div>) }
 					</div>
 				: null}
 				{images && images.length ?

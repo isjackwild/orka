@@ -12,6 +12,8 @@ class VideoPreview extends Component {
 			previewLoading: false,
 		};
 
+		this.placeholderStyle = Math.floor(Math.random() * 12);
+
 		this.onPlayerReady = this.onPlayerReady.bind(this);
 		this.onPlayerStateChange = this.onPlayerStateChange.bind(this);
 
@@ -97,7 +99,7 @@ class VideoPreview extends Component {
 
 	render({ fallbackImage, isMobile }, { playStarted }) {
 		return (
-			<div class={`video-preview video-preview--${playStarted ? 'visible' : 'hidden'}`}>
+			<div class={`video-preview video-preview--${playStarted ? 'visible' : 'hidden'} placeholder placeholder--${this.placeholderStyle}`}>
 				{ isMobile ? 
 					<div class="video-preview__fallback-image" style={{backgroundImage: `url(${fallbackImage})`}}></div>
 					:

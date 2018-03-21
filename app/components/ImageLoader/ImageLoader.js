@@ -11,6 +11,7 @@ class ImageLoader extends Component {
 	constructor(props) {
 		super(props);
 
+		this.placeholderStyle = Math.floor(Math.random() * 12);
 		this.onLoad = this.onLoad.bind(this);
 	}
 
@@ -26,7 +27,11 @@ class ImageLoader extends Component {
 	}
 
 	render({ src, className }, { loaded }) {
-		return <div class={`image-loader ${className}`}><img class={`image-loader__image image-loader__image--${loaded ? 'loaded' : 'loading'}`} src={src} /></div>
+		return (
+			<div class={`image-loader ${className} placeholder placeholder--${this.placeholderStyle}`}>
+				<img class={`image-loader__image image-loader__image--${loaded ? 'loaded' : 'loading'}`} src={src} />
+			</div>
+		)
 	}
 };
 

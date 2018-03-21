@@ -33,7 +33,34 @@ body {
 a {
 	text-decoration: none;
 	color: inherit;
+	position: relative;
 }
+
+a:before {
+	content: '';
+	width: 58px;
+	height: 60px;
+	background: red;
+	display: block;
+	position: absolute;
+	top: -17px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	background: url('../images/orka-cartoon.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.05s ease;
+	filter: drop-shadow(0 0 5px rgba(#000, 0.6));
+	transform: scale(0.8);
+}
+
+a:hover:before {
+	opacity: 1;
+}
+
 
 .app--loading,
 .app--loading * {
@@ -43,6 +70,9 @@ a {
 .home__content {
 	position: relative;
 	background: #000;
+	box-shadow:
+		0 -1px 2px rgba(#000, 0.12),
+		0 0px 12px rgba(#000, 0.2);
 	transition:
 		opacity 1s ease-out,
 		transform 2.5s cubic-bezier(0, 1, 0.5, 1);
@@ -57,3 +87,66 @@ a {
 .filter__option {
 	display: inline-block;
 }
+
+.placeholder {
+	background-position: center;
+	background-size: cover;
+	image-rendering: crisp-edges;
+	// background-image: url('/assets/images/placeholders/placeholder--0.jpg');
+}
+
+.placeholder--0 {
+	background-image: url('/assets/images/placeholders/placeholder--0.jpg');	
+}
+
+.placeholder--1 {
+	background-image: url('/assets/images/placeholders/placeholder--1.jpg');	
+}
+
+.placeholder--2 {
+	background-image: url('/assets/images/placeholders/placeholder--2.jpg');	
+}
+
+.placeholder--3 {
+	background-image: url('/assets/images/placeholders/placeholder--3.jpg');	
+}
+
+.placeholder--4 {
+	background-image: url('/assets/images/placeholders/placeholder--4.jpg');	
+}
+
+.placeholder--5 {
+	background-image: url('/assets/images/placeholders/placeholder--5.jpg');	
+}
+
+.placeholder--6 {
+	background-image: url('/assets/images/placeholders/placeholder--6.jpg');	
+}
+
+.placeholder--7 {
+	background-image: url('/assets/images/placeholders/placeholder--7.jpg');	
+}
+
+.placeholder--8 {
+	background-image: url('/assets/images/placeholders/placeholder--8.jpg');	
+}
+
+.placeholder--9 {
+	background-image: url('/assets/images/placeholders/placeholder--9.jpg');	
+}
+
+.placeholder--10 {
+	background-image: url('/assets/images/placeholders/placeholder--10.jpg');	
+}
+
+.placeholder--11 {
+	background-image: url('/assets/images/placeholders/placeholder--11.jpg');	
+}
+
+.placeholder--12 {
+	background-image: url('/assets/images/placeholders/placeholder--12.jpg');	
+}
+
+
+
+

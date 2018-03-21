@@ -11,7 +11,7 @@ const View = ({ opacity, wrapperFixed, backToTop}) => (
 		<div class={`cover__canvas-wrapper ${wrapperFixed ? 'cover__canvas-wrapper--fixed' : null }`} onClick={backToTop}>
 			<canvas class="cover__canvas"></canvas>
 		</div>
-		<img class="cover__wordmark" src="assets/images/orka-wordmark.png" style={{ opacity }} />
+		<img class="cover__wordmark" src="assets/images/orka-cartoon.png" />
 	</section>
 );
 

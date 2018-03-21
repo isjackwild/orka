@@ -37,7 +37,8 @@
 }
 
 .post__embed {
-	margin-bottom: 0;
+	font-size: 0;
+	margin-bottom: 20px;
 }
 
 .post__embed:last-child {
@@ -46,8 +47,7 @@
 
 .post__embed iframe {
 	width: 100%;
-	margin-bottom: 20px;
-	background: #12843D;
+	// background: #12843D;
 }
 
 .post__images {
