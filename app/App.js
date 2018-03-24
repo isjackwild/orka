@@ -23,7 +23,9 @@ import OrkaCursor from './components/OrkaCursor/OrkaCursor';
 class App extends Component {
 	state = {
 		data: null,
+		loadTimePassed: false,
 	}
+	loadTimeout = null;
 
 	constructor(props) {
 		super(props);
@@ -33,6 +35,11 @@ class App extends Component {
 
 	componentWillMount() {
 		initRouter();
+		this.loadTimeout = setTimeout(() => {
+			this.setState({ loadTimePassed: true });
+			if (this.state.data) store.dispatch(onInitialLoaded());
+		}, 2222);
+
 		this.fetchInitialData();
 	}
 
@@ -43,13 +50,16 @@ class App extends Component {
 	}
 
 	onInitialDataLoaded(data) {
-		store.dispatch(onInitialLoaded());
 		this.setState({ data });
+		if (!this.state.loadTimePassed) return;
+
+		store.dispatch(onInitialLoaded());
 	}
 
 	render({ isPhone, isInitialDataLoaded, isPageLoading }, { data }) {
 		return (
 			<div class={`app ${isPageLoading ? 'app--loading' : ''}`}>
+				<div class="initial-load"></div>
 				{isInitialDataLoaded ?
 					<span>
 						<footer class="content-footer"></footer>
@@ -59,7 +69,7 @@ class App extends Component {
 						<OrkaCursor />
 					</span>
 				: null}
-				<LoadingCover isVisible={!isInitialDataLoaded || isPageLoading } />
+				<LoadingCover isVisible={isPageLoading } />
 			</div>
 		);
 	}

@@ -29,7 +29,7 @@ body {
 	font-family: 'CothamSans', 'Helvetica', sans-serif;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
-	background: #000000;
+	background: #111;
 }
 
 .no-scroll {
@@ -74,6 +74,7 @@ a {
 
 .home {
 	padding-bottom: 100px;
+	// filter: blur(5px);
 	box-shadow:
 		0 1px 2px rgba(#000, 0.12),
 		0 0px 12px rgba(#000, 0.2);
@@ -81,18 +82,36 @@ a {
 
 .home__content {
 	position: relative;
-	background: #000;
+	background: #111;
+	// transform: translate3d(0, 50vh, 0);
 	box-shadow:
 		0 1px 2px rgba(#000, 0.15),
 		0 0px 15px rgba(#000, 0.33);
 	transition:
-		opacity 1s ease-out,
+		opacity 0.3s ease-out,
 		transform 2.5s cubic-bezier(0, 1, 0.5, 1);
 }
+
 
 .home__content--transform {
 	transform: translate3d(0, 50vh, 0);
 	opacity: 0;
+}
+
+.initial-load {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-image: url('../images/orka--loading.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	pointer-events: none;
+	height: 222px;
+	width: 650px;
 }
 
 .content-footer {

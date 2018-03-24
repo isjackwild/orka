@@ -2,7 +2,7 @@
 	position: relative;
 	padding: 15px;
 	background: #E5311D;
-	background: #000;
+	background: #111;
 	// background: #BF1179;
 
 	@include mobile {
@@ -16,7 +16,7 @@
 	top: 0;
 	left: 0;
 	background: #DDD;
-	background: #000;
+	background: #111;
 	transition: opacity 0.1s linear;
 	image-rendering: crisp-edges;
 	// transform: scale(2.5);

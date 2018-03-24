@@ -17,7 +17,7 @@ import { init, play, pause} from './drawing';
 const View = ({ opacity, wrapperFixed, onClick }) => (
 	<section class="cover">
 		<div class={`cover__canvas-wrapper ${wrapperFixed ? 'cover__canvas-wrapper--fixed' : null }`} onClick={onClick}>
-			<canvas class="cover__canvas"></canvas>
+			<canvas class="cover__canvas" onClick={e => e.stopPropagation()}></canvas>
 		</div>
 	</section>
 );
@@ -74,8 +74,7 @@ class Cover extends Component {
 	}
 
 	onClick() {
-		if (this.props.isAboutOverlayVisible) return PubSub.publish('about.hide');
-		if (this.props.isPageOverlayVisible) return PubSub.publish('page.hide');
+		if (this.props.isAboutOverlayVisible || this.props.currentPage) return PubSub.publish('overlay.close');
 		return this.backToTop();
 	}
 
@@ -88,8 +87,8 @@ class Cover extends Component {
 	}
 };
 
-const mapStateToProps = ({ isPageOverlayVisible, isAboutOverlayVisible }) => {
-	return { isPageOverlayVisible, isAboutOverlayVisible };
+const mapStateToProps = ({ isPageOverlayVisible, isAboutOverlayVisible, currentPage }) => {
+	return { isPageOverlayVisible, isAboutOverlayVisible, currentPage };
 };
 
 

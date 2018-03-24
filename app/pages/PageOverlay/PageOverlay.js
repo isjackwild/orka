@@ -3,7 +3,6 @@ import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
 import _ from 'lodash';
 import page from 'page';
-import PubSub from 'pubsub-js';
 
 import ScrollOverlay from '../../components/ScrollOverlay/ScrollOverlay';
 import Post from '../Post/Post';
@@ -38,7 +37,6 @@ class PageOverlay extends Component {
 
 	componentDidMount() {
 		if (this.props.slug) this.fetchPageData();
-		PubSub.subscribe('page.hide', () => this.hide());
 	}
 
 	componentDidUpdate(lastProps, lastSlug) {

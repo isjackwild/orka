@@ -4,11 +4,13 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(#111, 0.8);
+	background: rgba(#111, 0.9);
 	z-index: 1111;
 	transition: opacity 0.2s ease-in;
 	pointer-events: none;
 	opacity: 0;
+	background-image: url('/assets/images/noise-texture.png');
+	background-size: 150px 150px;
 }
 
 .loading-cover--visible {
@@ -30,4 +32,8 @@
 	pointer-events: none;
 	height: 122px;
 	width: 450px;
+}
+
+.page-blur {
+	filter: blur(5px);
 }

@@ -4,6 +4,9 @@ import { connect } from 'preact-redux';
 import _ from 'lodash';
 import page from 'page';
 import PubSub from 'pubsub-js';
+import 'gsap/TweenLite';
+import 'gsap/ScrollToPlugin';
+import 'gsap/EasePack';
 
 // API
 import { toggleAboutOverlay } from '../../state/actions';
@@ -48,6 +51,7 @@ class ScrollOverlay extends Component {
 		this.setState({ _id: this.generateId() })
 		this.onScroll = _.throttle(this.onScroll, 8).bind(this);
 		this.onResize = _.throttle(this.onResize, 111).bind(this);
+		this.close = this.close.bind(this);
 	}
 
 	generateId() {
@@ -66,6 +70,7 @@ class ScrollOverlay extends Component {
 	componentDidMount() {
 		this.onResize();
 		PubSub.subscribe('content.resize', this.onResize);
+		PubSub.subscribe('overlay.close', this.close);
 		if (this.props.isVisible) {
 			this.show();
 		}
@@ -97,6 +102,14 @@ class ScrollOverlay extends Component {
 		this.onResize();
 		document.querySelector(`.scroll-overlay--${this.state._id}`).scrollTop = 0;
 		this.setState({ applyInnerTransform: false, shimOpacity: 1 });
+	}
+
+	close() {
+		if (!this.props.isVisible) return;
+		const el = document.querySelector(`.scroll-overlay--${this.state._id}`);
+		TweenLite.to(el, 1.5, { scrollTo: (el.scrollHeight - window.innerHeight) + 11, ease: Power3.easeOut });
+
+		console.log('close overlay');
 	}
 
 	render(props, state) {
