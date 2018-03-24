@@ -12,10 +12,12 @@ import Home from './pages/Home/Home';
 import FourOhFour from './pages/404/404';
 import AboutOverlay from './pages/AboutOverlay/AboutOverlay';
 import PageOverlay from './pages/PageOverlay/PageOverlay';
+import LoadingCover from './components/LoadingCover/LoadingCover';
 
 // Components
 import Footer from './components/Footer/Footer';
 import ScrollOverlay from './components/ScrollOverlay/ScrollOverlay';
+import OrkaCursor from './components/OrkaCursor/OrkaCursor';
 
 
 class App extends Component {
@@ -46,12 +48,18 @@ class App extends Component {
 	}
 
 	render({ isPhone, isInitialDataLoaded, isPageLoading }, { data }) {
-		if (!isInitialDataLoaded) return null;
 		return (
 			<div class={`app ${isPageLoading ? 'app--loading' : ''}`}>
-				<Home aboutText={data.about} feedItems={data.feed.items} contact={data.contact} />
-				<PageOverlay/>
-				<AboutOverlay text={data.about} contact={data.contact} />
+				{isInitialDataLoaded ?
+					<span>
+						<footer class="content-footer"></footer>
+						<Home aboutText={data.about} feedItems={data.feed.items} contact={data.contact} />
+						<PageOverlay/>
+						<AboutOverlay text={data.about} contact={data.contact} />
+						<OrkaCursor />
+					</span>
+				: null}
+				<LoadingCover isVisible={!isInitialDataLoaded || isPageLoading } />
 			</div>
 		);
 	}

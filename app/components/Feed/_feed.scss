@@ -3,6 +3,8 @@
 	color: #12843D;
 	padding: 90px $side-padding--desktop 60px $side-padding--desktop;
 	min-height: calc(100vh - 48px);
+	background-image: url('/assets/images/noise-texture.png');
+	background-size: 150px 150px;
 
 	@include mobile {
 		padding: 50px $side-padding--mobile 50px $side-padding--mobile;
@@ -14,6 +16,9 @@
 	border-bottom: 3px solid #12843D;
 	// padding-bottom: 0px;
 	font-size: 0;
+	// box-shadow:
+	// 	0 1px 2px rgba(#000, 0.15),
+	// 	0 0px 15px rgba(#000, 0.33);
 
 	@include mobile {
 		padding-bottom: 4px;
@@ -85,3 +90,12 @@
 	margin-right: 10px;
 }
 
+
+.feed-transition-appear {
+  opacity: 0.01;
+}
+
+.feed-transition-appear.feed-transition-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

@@ -1,0 +1,19 @@
+.orka-cursor {
+	position: fixed;
+	top: -55px;
+	left: -120px;
+	z-index: 1111;
+	background-image: url('../images/orka--go.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 80px;
+	pointer-events: none;
+	display: none;
+	transition: transform 0.02s ease, opacity 0.05s ease;
+}
+
+.orka-cursor--visible {
+	display: block;
+}

@@ -30,6 +30,7 @@ function generate_feed_json() {
         break;
       case 'feed--video':
         $item['ytid'] = $page->ytid()->value();
+        $item['slug'] = (string) $page->slug();
         $item['fallbackImage'] = thumb($page->images()->find($page->fallbackImage()), array('height' => 250))->url();
         break;
       default:
@@ -73,6 +74,8 @@ function generate_page_json($page) {
           array_push($item['images'], $sizes);
         }
         break;
+      case 'feed--video':
+        $item['ytid'] = $page->ytid()->value();
       default:
         break;
     }

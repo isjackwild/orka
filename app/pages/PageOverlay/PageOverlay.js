@@ -3,6 +3,7 @@ import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
 import _ from 'lodash';
 import page from 'page';
+import PubSub from 'pubsub-js';
 
 import ScrollOverlay from '../../components/ScrollOverlay/ScrollOverlay';
 import Post from '../Post/Post';
@@ -13,9 +14,11 @@ import store from '../../state/store';
 import { FEED_CATEGORIES } from '../../CONSTANTS';
 
 
-const View = ({ title, type, text, embeds, images, isVisible, hide }) => (
+const View = ({ title, type, text, embeds, images, ytid, isVisible, hide }) => (
 	<ScrollOverlay isVisible={isVisible} hide={hide}>
-		<Post title={title} type={type} text={text} embeds={embeds} images={images} isVisible={isVisible} />
+		{isVisible ?
+			<Post title={title} type={type} text={text} embeds={embeds} images={images} ytid={ytid} isVisible={isVisible} />
+		: null}
 	</ScrollOverlay>
 );
 
@@ -35,6 +38,7 @@ class PageOverlay extends Component {
 
 	componentDidMount() {
 		if (this.props.slug) this.fetchPageData();
+		PubSub.subscribe('page.hide', () => this.hide());
 	}
 
 	componentDidUpdate(lastProps, lastSlug) {
@@ -52,14 +56,17 @@ class PageOverlay extends Component {
 	}
 
 	onPageDataLoaded(data) {
+		console.log(data);
 		setTimeout(() => {
 			store.dispatch(setPageLoading(false))
 		}, 333);
+		document.body.classList.toggle('no-scroll');
 		this.setState({ data, isVisible: true });
 	}
 
 	hide() {
-		this.setState({ isVisible: false });
+		document.body.classList.toggle('no-scroll');
+		this.setState({ isVisible: false, data: null });
 		page('/');
 	}
 

@@ -5,12 +5,12 @@ import VideoPreview from '../../VideoPreview/VideoPreview'
 
 import { FEED_CATEGORIES } from '../../../CONSTANTS';
 
-const View = ({ title, type, ytid, isFullscreen, toggleFullscreen, fallbackImage }) => (
+const View = ({ title, slug, type, ytid, isFullscreen, toggleFullscreen, fallbackImage, showCursor, hideCursor }) => (
 	<li class="feed__item feed__item--video">
 		<span class="feed__item-type">{FEED_CATEGORIES[type]}</span>
 		<div class="feed__item-title-wrapper">
 			<h1 class="feed__item-title">{title}</h1>
-			<span class="feed__item-link" onClick={toggleFullscreen}>Watch ❊</span>
+			<a class="feed__item-link" href={slug} onClick={toggleFullscreen} onMouseEnter={showCursor} onMouseLeave={hideCursor}>Watch ❊</a>
 		</div>
 		<VideoPreview youtubeId={ytid} fallbackImage={fallbackImage} isFullscreen={isFullscreen} />
 	</li>
@@ -32,9 +32,10 @@ class Video extends Component {
 	}
 
 	render(props, state) {
+		console.log(props);
 		return <View { ...props } { ...state } toggleFullscreen={this.toggleFullscreen} />;
 	}
 }
 
 
-export default View;
+export default Video;

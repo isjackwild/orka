@@ -16,6 +16,7 @@ const INITIAL = {
 	feedFilter: 'feed--all',
 	currentPage: null,
 	youtubeApiReady: false,
+	isOrkaCursorVisible: false,
 };
 
 const store = createStore((state, action) => (

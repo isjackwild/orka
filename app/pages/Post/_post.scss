@@ -1,12 +1,18 @@
 .post {
 	background: #333333;
 	color: #12843D;
+	background-image: url('/assets/images/noise-texture.png');
+	background-size: 150px 150px;
 	padding: 50px $side-padding--desktop 130px $side-padding--desktop;
 	min-height: 100vh;
 
 	@include mobile {
 		padding: 40px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
 	}
+}
+
+.post--video {
+	z-index: 1111;
 }
 
 .post__title {
@@ -65,7 +71,23 @@
 	height: auto;
 }
 
+.post__video {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
 
+.post__video-wrapper {
+	position: relative;
+}
+
+.post__video-wrapper:before {
+	content: '';
+	display: block;
+	position: relative;
+	padding-bottom: 56.25%;
+}
 
 .post__text p {
 	margin-bottom: 1em;

@@ -1,17 +1,24 @@
 // NPM
 import { h, render, Component } from 'preact';
-import { init, play, pause} from './drawing';
+import { connect } from 'preact-redux';
 import _ from 'lodash';
 import 'gsap/TweenLite';
 import 'gsap/ScrollToPlugin';
 import 'gsap/EasePack';
+import page from 'page';
+import PubSub from 'pubsub-js';
 
-const View = ({ opacity, wrapperFixed, backToTop}) => (
+// API
+import { toggleAboutOverlay } from '../../state/actions';
+
+
+import { init, play, pause} from './drawing';
+
+const View = ({ opacity, wrapperFixed, onClick }) => (
 	<section class="cover">
-		<div class={`cover__canvas-wrapper ${wrapperFixed ? 'cover__canvas-wrapper--fixed' : null }`} onClick={backToTop}>
+		<div class={`cover__canvas-wrapper ${wrapperFixed ? 'cover__canvas-wrapper--fixed' : null }`} onClick={onClick}>
 			<canvas class="cover__canvas"></canvas>
 		</div>
-		<img class="cover__wordmark" src="assets/images/orka-cartoon.png" />
 	</section>
 );
 
@@ -28,6 +35,7 @@ class Cover extends Component {
 
 		this.onResize = _.throttle(this.onResize, 111).bind(this);
 		this.onScroll = _.throttle(this.onScroll, 16.66).bind(this);
+		this.onClick = this.onClick.bind(this);
 	}
 
 	componentDidMount() {
@@ -65,13 +73,27 @@ class Cover extends Component {
 		this.onScroll();
 	}
 
+	onClick() {
+		if (this.props.isAboutOverlayVisible) return PubSub.publish('about.hide');
+		if (this.props.isPageOverlayVisible) return PubSub.publish('page.hide');
+		return this.backToTop();
+	}
+
 	backToTop() {
 		TweenLite.to(window, 1.5, { scrollTo: 0, ease: Power3.easeOut });
 	}
 
 	render(props, state) {
-		return <View { ...props } { ...state } backToTop={this.backToTop} />;
+		return <View { ...props } { ...state } onClick={this.onClick} />;
 	}
 };
 
-export default Cover;
+const mapStateToProps = ({ isPageOverlayVisible, isAboutOverlayVisible }) => {
+	return { isPageOverlayVisible, isAboutOverlayVisible };
+};
+
+
+export default connect(
+	mapStateToProps,
+)(Cover);
+

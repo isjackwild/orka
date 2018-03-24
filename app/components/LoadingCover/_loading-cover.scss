@@ -1,0 +1,33 @@
+.loading-cover {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(#111, 0.8);
+	z-index: 1111;
+	transition: opacity 0.2s ease-in;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.loading-cover--visible {
+	opacity: 1;
+	pointer-events: auto;
+	transition: opacity 0.2s ease-out;
+}
+
+.loading-cover__inner {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-image: url('../images/orka--loading.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	pointer-events: none;
+	height: 122px;
+	width: 450px;
+}

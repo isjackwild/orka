@@ -5,6 +5,7 @@ import {
 	SET_CURRENT_PAGE,
 	ON_YT_API_LOADED,
 	SET_PAGE_LOADING,
+	SET_CURSOR_VISIBILITY
 } from './action-types';
 
 const onInitialLoaded = (state) => {
@@ -31,6 +32,10 @@ const setPageLoading = (state, { value }) => {
 	return { ...state, isPageLoading: value };
 };
 
+const setCursorVisibility = (state, { value }) => {
+	return { ...state, isOrkaCursorVisible: value };
+};
+
 
 const REDUCERS = {};
 REDUCERS[ON_INITIAL_LOADED] = onInitialLoaded;
@@ -39,6 +44,7 @@ REDUCERS[SET_FILTER] = setFilter;
 REDUCERS[SET_CURRENT_PAGE] = setCurrentPage;
 REDUCERS[ON_YT_API_LOADED] = onYoutubeApiLoaded;
 REDUCERS[SET_PAGE_LOADING] = setPageLoading;
+REDUCERS[SET_CURSOR_VISIBILITY] = setCursorVisibility;
 
 export default REDUCERS;
 

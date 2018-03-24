@@ -1,9 +1,9 @@
 // NPM
 import { h, render, Component } from 'preact';
 
-const LoadingCover = () => (
-	<div class="loading-cover">
-		<h1>Loading</h1>
+const LoadingCover = ({ isVisible }) => (
+	<div class={`loading-cover loading-cover--${isVisible ? 'visible' : 'hidden'}`}> 
+		<h1 class="loading-cover__inner"></h1>
 	</div>
 );
 

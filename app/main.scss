@@ -10,6 +10,8 @@
 @import './components/ScrollOverlay/_scroll-overlay';
 @import './components/VideoPreview/_video-preview';
 @import './components/ImageLoader/_image-loader';
+@import './components/OrkaCursor/_orka-cursor';
+@import './components/LoadingCover/_loading-cover';
 
 @import './pages/Post/_post';
 
@@ -30,35 +32,39 @@ body {
 	background: #000000;
 }
 
+.no-scroll {
+	overflow: hidden;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
 	position: relative;
 }
 
-a:before {
-	content: '';
-	width: 58px;
-	height: 60px;
-	background: red;
-	display: block;
-	position: absolute;
-	top: -17px;
-	left: 50%;
-	transform: translate(-50%, 0);
-	background: url('../images/orka-cartoon.png');
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-	pointer-events: none;
-	opacity: 0;
-	transition: opacity 0.05s ease;
-	filter: drop-shadow(0 0 5px rgba(#000, 0.6));
-}
+// a:before {
+// 	content: '';
+// 	width: 58px;
+// 	height: 60px;
+// 	background: red;
+// 	display: block;
+// 	position: absolute;
+// 	top: -17px;
+// 	left: 50%;
+// 	transform: translate(-50%, 0);
+// 	background: url('../images/orka-cartoon.png');
+// 	background-size: contain;
+// 	background-position: center;
+// 	background-repeat: no-repeat;
+// 	pointer-events: none;
+// 	opacity: 0;
+// 	transition: opacity 0.05s ease;
+// 	filter: drop-shadow(0 0 5px rgba(#000, 0.6));
+// }
 
-a:hover:before {
-	opacity: 1;
-}
+// a:hover:before {
+// 	opacity: 1;
+// }
 
 
 .app--loading,
@@ -66,12 +72,19 @@ a:hover:before {
 	cursor: wait !important;
 }
 
+.home {
+	padding-bottom: 100px;
+	box-shadow:
+		0 1px 2px rgba(#000, 0.12),
+		0 0px 12px rgba(#000, 0.2);
+}
+
 .home__content {
 	position: relative;
 	background: #000;
 	box-shadow:
-		0 -1px 2px rgba(#000, 0.12),
-		0 0px 12px rgba(#000, 0.2);
+		0 1px 2px rgba(#000, 0.15),
+		0 0px 15px rgba(#000, 0.33);
 	transition:
 		opacity 1s ease-out,
 		transform 2.5s cubic-bezier(0, 1, 0.5, 1);
@@ -82,6 +95,34 @@ a:hover:before {
 	opacity: 0;
 }
 
+.content-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	background: #111;
+	background-image: url('/assets/images/noise-texture.png');
+	background-size: 150px 150px;
+}
+
+.content-footer:before {
+	content: '';
+	width: 152px;
+	height: 81px;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-image: url('../images/orka--go.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	pointer-events: none;
+	transition: opacity 0.05s ease;
+	// filter: drop-shadow(0 0 5px rgba(#000, 0.3)) invert(100%);
+}
 
 .filter__option {
 	display: inline-block;

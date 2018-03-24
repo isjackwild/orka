@@ -5,15 +5,15 @@ import _ from 'lodash';
 import PubSub from 'pubsub-js';
 
 // API
-import { toggleAboutOverlay } from '../../state/actions';
+import { toggleAboutOverlay, setCursorVisibility } from '../../state/actions';
 
 // Components
 import FeedFilter from '../FeedFilter/FeedFilter';
 
-const View = ({ showAbout, position }) => (
+const View = ({ showAbout, position, showCursor, hideCursor }) => (
 	<div class="sticky-nav__wrapper">
 		<nav class={`sticky-nav sticky-nav--${position}`} style={{ position }}>
-			<span class="about-button" onClick={showAbout}>ORKA</span>
+			<span class="about-button" onClick={showAbout} onMouseEnter={showCursor} onMouseLeave={hideCursor}>ORKA</span>
 			<FeedFilter />
 		</nav>
 	</div>
@@ -74,8 +74,15 @@ const mapDispatchToProps = (dispatch) => {
 		showAbout: () => {
 			dispatch(toggleAboutOverlay());
 		},
+		showCursor: () => {
+			dispatch(setCursorVisibility(true));
+		},
+		hideCursor: () => {
+			dispatch(setCursorVisibility(false))
+		},
 	};
 };
+
 
 export default connect(
 	mapStateToProps,

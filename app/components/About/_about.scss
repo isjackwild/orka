@@ -2,6 +2,8 @@
 	padding: 50px $side-padding--desktop $side-padding--desktop $side-padding--desktop;
 	color: #3D93FF;
 	background: #232323;
+	background-image: url('/assets/images/noise-texture.png');
+	background-size: 150px 150px;
 
 	@include mobile {
 		padding: 20px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
@@ -10,7 +12,7 @@
 
 .about__text {
 	font-size: 40px;
-	line-height: 1.425em;
+	line-height: 1.2em;
 	margin-bottom: 100px;
 	max-width: 2000px;
 

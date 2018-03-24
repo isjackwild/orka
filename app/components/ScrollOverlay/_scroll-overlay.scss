@@ -5,7 +5,7 @@
 	left: 0;
 	bottom: 0;
 	right: 0;
-	padding-bottom: 100vh;
+	// padding-bottom: 100vh;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 	backface-visibility: hidden;
@@ -18,18 +18,31 @@
 
 .scroll-overlay__spacer {
 	min-height: 100vh;
+	position: relative;
+	display: block;
+	top: 0;
+	width: 100%;
+	// background: red;
 }
  
 .scroll-overlay__inner-scroller {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	width: 100%;
 	min-height: 100vh;
 	transition: transform 0.01s ease-out;
+	// pointer-events: none;
+	// display: none;
+}
+
+.scroll-overlay__inner-scroller a,
+.scroll-overlay__inner-scroller iframe {
+	pointer-events: all;
 }
 
 .scroll-overlay__inner {
 	position: fixed;
+	padding-top: 20px;
 	top: 0;
 	width: 100%;
 	min-height: 100vh;
@@ -62,16 +75,20 @@
 
 .scroll-overlay__hint {
 	position: fixed;
-	bottom: 15px;
+	bottom: 10px;
 	left: 50%;
 	transform: translateX(-50%);
-	text-transform: uppercase;
-	font-size: 12px;
-	letter-spacing: 0.145em;
-	color: #ce1703;
-	line-height: 1.5em;
-	-webkit-font-smoothing: auto;
 	opacity: 0;
+
+	width: 226px;
+	height: 75px;
+	display: block;
+	background-image: url('../images/orka--scroll.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: opacity 0.05s ease;
+	cursor: pointer;
 }
 
 .scroll-overlay__hint--visible {
@@ -80,23 +97,4 @@
 	text-shadow:
 		0 0 2px rgba(#000, 0.1),
 		0 0 22px rgba(#fff, 0.1);
-}
-
-.scroll-overlay__hint:before {
-	content: '';
-	width: 58px;
-	height: 60px;
-	background: red;
-	display: block;
-	position: absolute;
-	top: -5px;
-	left: 50%;
-	transform: translate(-50%, -100%);
-	background: url('../images/orka-cartoon.png');
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-	pointer-events: none;
-	transition: opacity 0.05s ease;
-	filter: drop-shadow(0 0 5px rgba(#000, 0.3)) invert(100%);
 }

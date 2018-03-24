@@ -5,6 +5,7 @@ import {
 	SET_CURRENT_PAGE,
 	SET_PAGE_LOADING,
 	ON_YT_API_LOADED,
+	SET_CURSOR_VISIBILITY
 } from './action-types';
 
 export const onInitialLoaded = () => {
@@ -12,6 +13,7 @@ export const onInitialLoaded = () => {
 };
 
 export const toggleAboutOverlay = () => {
+	document.body.classList.toggle('no-scroll');
 	return { type: TOGGLE_ABOUT_OVERLAY };
 };
 
@@ -28,7 +30,10 @@ export const setPageLoading = (value) => {
 };
 
 export const onYoutubeApiLoaded = (value) => {
-	console.log('!');
 	return { type: ON_YT_API_LOADED, value };
+};
+
+export const setCursorVisibility = (value) => {
+	return { type: SET_CURSOR_VISIBILITY, value };
 };
 
