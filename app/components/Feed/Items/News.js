@@ -10,7 +10,7 @@ const News = ({ title, type, slug, images, showCursor, hideCursor }) => (
 		<span class="feed__item-type">{FEED_CATEGORIES[type]}</span>
 		<div class="feed__item-title-wrapper">
 			<h1 class="feed__item-title" ><a href={slug} onMouseEnter={showCursor} onMouseLeave={hideCursor}>{title}</a></h1>
-			<a class="feed__item-link" href={slug} onMouseEnter={showCursor} onMouseLeave={hideCursor}>Read More →</a>
+			<a class="feed__item-link" href={slug} onMouseEnter={showCursor} onMouseLeave={hideCursor}>More →</a>
 		</div>
 		{images.length ?
 			<a href={slug}><div class="feed__images" onMouseEnter={showCursor} onMouseLeave={hideCursor}>

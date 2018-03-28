@@ -1,5 +1,5 @@
 .filter__option {
-	margin-right: 25px;
+	margin-right: 22px;
 	text-transform: uppercase;
 	font-size: 11px;
 	padding-left: 3px;
@@ -9,9 +9,11 @@
 	user-select: none;
 	position: relative;
 	vertical-align: middle;
+	padding: 3px;
+	transition: opacity 0.15s ease;
 	@include mobile {
 		font-size: 10px;
-		margin-right: 15px;
+		margin-right: 12px;
 	}
 }
 
@@ -27,6 +29,8 @@
 .filter__option--active {
 	cursor: default;
 	pointer-events: none;
+	opacity: 0.6;
+	text-transform: underline;
 	// border-left: 1px solid rgba(#DB6741, 0.8);
 }
 
@@ -48,6 +52,7 @@
 	opacity: 0;
 	transition: opacity 0.15s ease;
 	filter: drop-shadow(0 0 5px rgba(#000, 0.6));
+	display: none;
 }
 
 .filter__option:nth-child(1):before {
