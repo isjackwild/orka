@@ -9,6 +9,10 @@
 	@include mobile {
 		padding: 40px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
 	}
+
+	@include xl-up {
+		padding: 80px $side-padding--xl $side-padding--desktop $side-padding--xl;
+	}
 }
 
 .post--video {
@@ -76,10 +80,17 @@
 	top: 0;
 	width: 100%;
 	height: 100%;
+	max-width: 600px;
 }
 
 .post__video-wrapper {
 	position: relative;
+	max-width: 600px;
+	margin-bottom: 15px;
+}
+
+.post__video-wrapper:last-child {
+	margin-bottom: 0;
 }
 
 .post__video-wrapper:before {

@@ -9,6 +9,10 @@
 	@include mobile {
 		padding: 50px $side-padding--mobile 50px $side-padding--mobile;
 	}
+
+	@include xl-up {
+		padding: 80px $side-padding--xl $side-padding--desktop $side-padding--xl;
+	}
 }
 
 .feed__item {

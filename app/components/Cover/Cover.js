@@ -14,9 +14,9 @@ import { toggleAboutOverlay } from '../../state/actions';
 
 import { init, play, pause} from './drawing';
 
-const View = ({ opacity, wrapperFixed, onClick }) => (
+const View = ({ opacity, wrapperFixed, overlayOpen, onClick }) => (
 	<section class="cover">
-		<div class={`cover__canvas-wrapper ${wrapperFixed ? 'cover__canvas-wrapper--fixed' : null }`} onClick={onClick}>
+		<div class={`cover__canvas-wrapper ${wrapperFixed || overlayOpen ? 'cover__canvas-wrapper--fixed' : null }`} onClick={onClick}>
 			<canvas class="cover__canvas" onClick={e => e.stopPropagation()}></canvas>
 		</div>
 	</section>
@@ -88,7 +88,7 @@ class Cover extends Component {
 };
 
 const mapStateToProps = ({ isPageOverlayVisible, isAboutOverlayVisible, currentPage }) => {
-	return { isPageOverlayVisible, isAboutOverlayVisible, currentPage };
+	return { isPageOverlayVisible, currentPage, isAboutOverlayVisible, overlayOpen: (isAboutOverlayVisible || isPageOverlayVisible || !currentPage) };
 };
 
 

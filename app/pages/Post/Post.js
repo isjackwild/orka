@@ -14,7 +14,7 @@ const NewsView = ({ title, type, text, embeds, images, isVisible }) => (
 		<h1 class="post__title feed__item-title">{title}</h1>
 		{isVisible ?
 			<div>
-				<div class="post__text" dangerouslySetInnerHTML={{ __html: text }}>hey there</div>
+				<div class="post__text" dangerouslySetInnerHTML={{ __html: text }}></div>
 				{embeds && embeds.length ?
 					<div class="post__embeds">
 						{ embeds.map(e => <div class={`post__embed placeholder placeholder--${Math.floor(Math.random() * 12)}`} dangerouslySetInnerHTML={{ __html: e }}>lkjlkj</div>) }
@@ -35,6 +35,9 @@ const VideoView = ({ title, type, text, embeds, images, isVisible, randomId, pla
 		<h1 class="post__title feed__item-title">{title}</h1>
 		{isVisible ?
 			<div class="post__video-wrapper"><div class={`post__video  placeholder placeholder--${placeholderStyle}`} id={`post__video--${randomId}`}></div></div>
+		: null}
+		{text ?
+			<div class="post__text" dangerouslySetInnerHTML={{ __html: text }}></div>
 		: null}
 	</section>
 );

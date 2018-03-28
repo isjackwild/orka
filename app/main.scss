@@ -18,8 +18,24 @@
 
 @font-face {
   font-family: 'CothamSans';
-  src: url('assets/fonts/CothamSans.eot') fomat('otf'); /* IE9 Compat Modes */
+  font-weight: normal;
+  src: url('assets/fonts/CothamSans.eot') fomat('eot');
+  src:
+  	url('assets/fonts/CothamSans.ttf') fomat('ttf'),
+  	url('assets/fonts/CothamSans.otf') fomat('otf');
 }
+
+// @font-face {
+// 	font-family: 'TeX Gyre Heros';
+// 	font-weight: normal;
+// 	src: url("../fonts-2/texgyreheros-regular.otf") format("opentype");
+// }
+
+// @font-face {
+// 	font-family: 'TeX Gyre Heros';
+// 	font-weight: bold;
+// 	src: url("../fonts-2/texgyreheros-bold.otf") format("opentype");
+// }
 
 * {
 	box-sizing: border-box;
@@ -27,8 +43,11 @@
 
 body {
 	font-family: 'CothamSans', 'Helvetica', sans-serif;
+	// font-family: 'TeX Gyre Heros', serif;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
+	font-smooth: auto;
+	-moz-osx-font-smoothing: grayscale;
 	background: #111;
 }
 
@@ -110,8 +129,15 @@ a {
 	background-position: center;
 	background-repeat: no-repeat;
 	pointer-events: none;
-	height: 222px;
-	width: 650px;
+	height: 166px;
+	width: 450px;
+	max-width: 68%;
+	transition: opacity 0.66s ease-out;
+	opacity: 0;
+}
+
+.body--loading .initial-load {
+	opacity: 1;
 }
 
 .content-footer {

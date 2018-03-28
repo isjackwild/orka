@@ -12,6 +12,10 @@
 	pointer-events: none;
 	display: none;
 	transition: transform 0.02s ease, opacity 0.05s ease;
+	
+	@include mobile {
+		display: none !important;
+	}
 }
 
 .orka-cursor--visible {

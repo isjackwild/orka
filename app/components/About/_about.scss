@@ -8,13 +8,17 @@
 	@include mobile {
 		padding: 20px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
 	}
+
+	@include xl-up {
+		padding: 80px $side-padding--xl $side-padding--desktop $side-padding--xl;
+	}
 }
 
 .about__text {
 	font-size: 40px;
 	line-height: 1.2em;
 	margin-bottom: 100px;
-	max-width: 2000px;
+	max-width: 1600px;
 
 	@include mobile {
 		font-size: 24px;

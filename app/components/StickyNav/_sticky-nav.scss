@@ -32,6 +32,9 @@
 	background-image: url('/assets/images/noise-texture.png');
 	background-size: 150px 150px;
 
+	@include xl-up {
+		padding: 0 $side-padding--xl;
+	}
 
 	@include mobile {
 		padding: 0 $side-padding--mobile;

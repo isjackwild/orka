@@ -1,5 +1,5 @@
 .filter__option {
-	padding-right: 25px;
+	margin-right: 25px;
 	text-transform: uppercase;
 	font-size: 11px;
 	padding-left: 3px;
@@ -21,35 +21,58 @@
 }
 
 .filter__option:last-child {
-	padding-right: 0;
+	margin-right: 0;
 }
 
 .filter__option--active {
 	cursor: default;
-	// pointer-events: none;
+	pointer-events: none;
 	// border-left: 1px solid rgba(#DB6741, 0.8);
 }
 
 .filter__option:before {
 	content: '';
-	width: 38px;
-	height: 60px;
-	background: red;
+	width: 20px;
+	height: 20px;
 	display: block;
 	position: absolute;
-	top: -22px;
-	left: 50%;
-	transform: translate(-88%, 0);
+	top: 50%;
+	left: 0;
+	transform: translate(-66%, -120%);
 	background: url('../images/orka-cartoon.png');
 	background-size: contain;
-	background-position: center;
+	background-position: center center;
 	background-repeat: no-repeat;
+	// background-color: red;
 	pointer-events: none;
 	opacity: 0;
-	transition: opacity 0.05s ease;
+	transition: opacity 0.15s ease;
 	filter: drop-shadow(0 0 5px rgba(#000, 0.6));
 }
 
+.filter__option:nth-child(1):before {
+	background-image: url('../images/splash--1.svg');
+}
+
+.filter__option:nth-child(2):before {
+	background-image: url('../images/splash--2.svg');
+	// left: 100%;
+	// transform: translate(-40%, -110%);
+}
+
+.filter__option:nth-child(3):before {
+	background-image: url('../images/splash--3.svg');
+}
+
+.filter__option:nth-child(4):before {
+	background-image: url('../images/splash--4.svg');
+	// left: 100%;
+	// transform: translate(-20%, -110%);
+}
+
+.filter__option:nth-child(5):before {
+	background-image: url('../images/splash--1.svg');
+}
 // .filter:hover .filter__option--active:before {
 // 	opacity: 0;
 // }
@@ -58,7 +81,7 @@
 	opacity: 1;
 }
 
-// .filter__option:hover:before {
-// 	opacity: 1;
-// }
+.filter__option:hover:before {
+	opacity: 1;
+}
 

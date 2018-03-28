@@ -35,4 +35,4 @@
   <?= css('assets/css/main.css') ?>
 
 </head>
-<body>
+<body class="body--loading">

@@ -37,6 +37,7 @@ class App extends Component {
 		initRouter();
 		this.loadTimeout = setTimeout(() => {
 			this.setState({ loadTimePassed: true });
+			document.body.classList.remove('body--loading');
 			if (this.state.data) store.dispatch(onInitialLoaded());
 		}, 2222);
 
@@ -53,13 +54,13 @@ class App extends Component {
 		this.setState({ data });
 		if (!this.state.loadTimePassed) return;
 
+		document.body.classList.remove('body--loading');
 		store.dispatch(onInitialLoaded());
 	}
 
 	render({ isPhone, isInitialDataLoaded, isPageLoading }, { data }) {
 		return (
 			<div class={`app ${isPageLoading ? 'app--loading' : ''}`}>
-				<div class="initial-load"></div>
 				{isInitialDataLoaded ?
 					<span>
 						<footer class="content-footer"></footer>
