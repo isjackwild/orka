@@ -11,7 +11,8 @@
     "gulp": "gulp --gulpfile ./gulp/gulpfile.js --env development",
     "server": "php -S 127.0.0.1:4000 -t build/",
     "build": "gulp build --gulpfile ./gulp/gulpfile.js --env production",
-    "dev": "npm-run-all --parallel gulp server"
+    "dev": "npm-run-all --parallel gulp server",
+    "deploy": "npm run build && rsync -rlptDzP --exclude 'content' --exclude 'thumbs' --exclude '.htaccess' --exclude 'build/site/cache' --exclude 'site/accounts/.logins' build/ root@jack-wild.com:/var/www/clients/orka.isjackwild.com/"
   },
   "dependencies": {
     "fastclick": "^1.0.6",

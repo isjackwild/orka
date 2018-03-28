@@ -18,6 +18,7 @@ const View = ({ text, contact, showCursor, hideCursor }) => {
 	const emailChunks = _.chunk(contact.emails, 2);
 	return (
 		<section class="about">
+			<img class="about__orka" src="assets/images/orka--orka.svg" />
 			<div class="about__text" dangerouslySetInnerHTML={{ __html: text }}></div>
 			<div class="about__contact">
 				{emailChunks.map(c => {

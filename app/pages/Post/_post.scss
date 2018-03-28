@@ -51,7 +51,7 @@
 	margin-bottom: 20px;
 }
 
-.post__embed:last-child {
+.post__embeds:last-child .post__embed:last-child {
 	margin-bottom: 0;
 }
 
@@ -68,6 +68,10 @@
 .post__image {
 	width: 100%;
 	margin-bottom: 20px;
+}
+
+.post__images:last-child .post__image:last-child {
+	margin-bottom: 0;
 }
 
 .post__image img {

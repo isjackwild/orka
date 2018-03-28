@@ -19,6 +19,7 @@ const View = ({ opacity, wrapperFixed, overlayOpen, onClick }) => (
 		<div class={`cover__canvas-wrapper ${wrapperFixed || overlayOpen ? 'cover__canvas-wrapper--fixed' : null }`}>
 			<canvas class="cover__canvas" onClick={e => e.stopPropagation()}></canvas>
 		</div>
+		<div class="cover__back-to-top" onClick={onClick}></div>
 	</section>
 );
 

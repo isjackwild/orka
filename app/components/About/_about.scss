@@ -6,12 +6,18 @@
 	background-size: 150px 150px;
 
 	@include mobile {
-		padding: 20px $side-padding--mobile $side-padding--mobile $side-padding--mobile;
+		padding: 20px $side-padding--mobile 17px $side-padding--mobile;
 	}
 
 	@include xl-up {
 		padding: 80px $side-padding--xl $side-padding--desktop $side-padding--xl;
 	}
+}
+
+.about__orka {
+	margin-bottom: 40px;
+	display: none;
+	// margin-top: -20px;
 }
 
 .about__text {
