@@ -7,3 +7,7 @@ Text: New video for our latest release, directed by Kirsten Helgarsdottir.
 ----
 
 Ytid: CEMdfuaiXmM
+
+----
+
+Fallbackimage: background-desktop-1.jpg

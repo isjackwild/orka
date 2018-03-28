@@ -38,6 +38,7 @@
 
 	@include mobile {
 		padding: 0 $side-padding--mobile;
+		padding-top: 2px;
 	}
 }
 
@@ -58,6 +59,7 @@
 	cursor: pointer;
 	user-select: none;
 	font-size: 14px;
+	line-height: 1em;
 
 	@include mobile {
 		font-size: 12px;

@@ -8,7 +8,7 @@
 	cursor: pointer;
 	user-select: none;
 	position: relative;
-
+	vertical-align: middle;
 	@include mobile {
 		font-size: 10px;
 		margin-right: 15px;

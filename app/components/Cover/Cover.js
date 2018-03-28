@@ -16,7 +16,7 @@ import { init, play, pause} from './drawing';
 
 const View = ({ opacity, wrapperFixed, overlayOpen, onClick }) => (
 	<section class="cover">
-		<div class={`cover__canvas-wrapper ${wrapperFixed || overlayOpen ? 'cover__canvas-wrapper--fixed' : null }`} onClick={onClick}>
+		<div class={`cover__canvas-wrapper ${wrapperFixed || overlayOpen ? 'cover__canvas-wrapper--fixed' : null }`}>
 			<canvas class="cover__canvas" onClick={e => e.stopPropagation()}></canvas>
 		</div>
 	</section>
