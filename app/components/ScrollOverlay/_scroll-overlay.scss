@@ -75,13 +75,14 @@
 
 .scroll-overlay__hint {
 	position: fixed;
-	bottom: 10px;
+	bottom: 5px;
 	left: 50%;
+	margin-left: 40px;
 	transform: translateX(-50%);
 	opacity: 0;
 
-	width: 226px;
-	height: 75px;
+	width: 286px;
+	height: 150px;
 	display: block;
 	background-image: url('../images/orka--scroll.svg');
 	background-size: contain;

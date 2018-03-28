@@ -88,7 +88,7 @@ class Cover extends Component {
 };
 
 const mapStateToProps = ({ isPageOverlayVisible, isAboutOverlayVisible, currentPage }) => {
-	return { isPageOverlayVisible, currentPage, isAboutOverlayVisible, overlayOpen: (isAboutOverlayVisible || isPageOverlayVisible || !currentPage) };
+	return { isPageOverlayVisible, currentPage, isAboutOverlayVisible, overlayOpen: (isAboutOverlayVisible || isPageOverlayVisible || currentPage) };
 };
 
 

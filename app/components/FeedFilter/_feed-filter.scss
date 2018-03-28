@@ -32,13 +32,13 @@
 
 .filter__option:before {
 	content: '';
-	width: 20px;
-	height: 20px;
+	width: 15px;
+	height: 15px;
 	display: block;
 	position: absolute;
 	top: 50%;
 	left: 0;
-	transform: translate(-66%, -120%);
+	transform: translate(-59%, -120%);
 	background: url('../images/orka-cartoon.png');
 	background-size: contain;
 	background-position: center center;
