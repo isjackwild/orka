@@ -21,23 +21,29 @@ class Feed extends Component {
 			return _.filter(items, item => feedFilter === item.type);
 		})();
 
-		const children = filteredItems.map(item => {
+		const children = filteredItems.map((item, i) => {
 			switch(item.type) {
 				case 'feed--live':
-					return <Live { ...item } showCursor={showCursor} hideCursor={hideCursor} />;
+					return <Live { ...item } showCursor={showCursor} hideCursor={hideCursor} key={i} />;
 				case 'feed--news':
-					return <News { ...item } showCursor={showCursor} hideCursor={hideCursor} />;
+					return <News { ...item } showCursor={showCursor} hideCursor={hideCursor} key={i} />;
 				case 'feed--shop':
-					return <Shop { ...item } showCursor={showCursor} hideCursor={hideCursor} />;
+					return <Shop { ...item } showCursor={showCursor} hideCursor={hideCursor} key={i} />;
 				case 'feed--video':
-					return <Video { ...item } showCursor={showCursor} hideCursor={hideCursor} />;
+					return <Video { ...item } showCursor={showCursor} hideCursor={hideCursor} key={i} />;
 			}
 		});
 
 		return (
 			<section class="feed">
 				<ul class="feed__items">
-					<PreactCSSTransitionGroup transitionName="feed-transition" transitionEnter={true} transitionLeave={true} transitionEnterTimeout={3333} transitionLeaveTimeout={3333}> 
+					<PreactCSSTransitionGroup 
+						transitionName="feed-transition"
+						transitionEnter={true}
+						transitionLeave={true}
+						transitionEnterTimeout={999}
+						transitionLeaveTimeout={999}
+					> 
 						{ children }
 					</PreactCSSTransitionGroup>
 				</ul>

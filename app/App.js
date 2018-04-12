@@ -30,7 +30,6 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.onInitialDataLoaded = this.onInitialDataLoaded.bind(this);
-		console.log('TODO: Draw a cool Orka whale, and use varios patterns for loading images backrounds')
 	}
 
 	componentWillMount() {
@@ -65,12 +64,12 @@ class App extends Component {
 					<span>
 						<footer class="content-footer"></footer>
 						<Home aboutText={data.about} feedItems={data.feed.items} contact={data.contact} />
+						<LoadingCover isVisible={isPageLoading } />
 						<PageOverlay/>
 						<AboutOverlay text={data.about} contact={data.contact} />
 						<OrkaCursor />
 					</span>
-				: null}
-				<LoadingCover isVisible={isPageLoading } />
+				: <LoadingCover isVisible={isPageLoading } />}
 			</div>
 		);
 	}
