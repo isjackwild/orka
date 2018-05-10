@@ -1,7 +1,8 @@
 title: Shop
 
 pages: false
-files: false
+files:
+  type: image
 deletable: true
 preview: false
 icon: shopping-cart

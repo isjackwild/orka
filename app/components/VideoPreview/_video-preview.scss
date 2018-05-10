@@ -43,5 +43,10 @@
 	background-size: cover;
 	background-position: center;
 	image-rendering: crisp-edges;
+	transition: opacity 0.33s ease-in 0.4s;
 	// background: red;
+}
+
+.video-preview--visible .video-preview__fallback-image {
+	opacity: 0;
 }

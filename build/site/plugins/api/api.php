@@ -13,6 +13,9 @@ function generate_feed_json() {
       case 'feed--live':
         $item['date'] = (string) $page->date('d/m/Y', 'show_date');
         $item['link'] = $page->tickets()->isNotEmpty() ? (string) $page->tickets()->url() : null;
+        $currentDateTime = date('Y-m-d');
+        $showDateTime = date('Y-m-d', strtotime($page->date('d/m/Y', 'show_date')));
+        $item['hasPassed'] = $currentDateTime > $showDateTime;
         break;
       case 'feed--news':
         $item['text'] = (string) $page->text()->kt();
@@ -27,6 +30,13 @@ function generate_feed_json() {
         break;
       case 'feed--shop':
         $item['link'] = (string) $page->shop_link()->url();
+        $item['images'] = array();
+        foreach ($page->images() as $image) {
+          $sizes = array(
+            'thumb' => thumb($image, array('height' => 150))->url(),
+          );
+          array_push($item['images'], $sizes);
+        }
         break;
       case 'feed--video':
         $item['ytid'] = $page->ytid()->value();
