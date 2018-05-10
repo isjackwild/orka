@@ -105,7 +105,7 @@ class Post extends Component {
 				showinfo: 0,
 				autohide: 1,
 				playsinline: 1,
-				fs: 0,
+				fs: 1,
 				iv_load_policy: 3,
 				cc_load_policy: 0,
 				rel: 0,

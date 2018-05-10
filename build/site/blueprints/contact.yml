@@ -24,8 +24,8 @@ fields:
     label: Twitter Profile
     type: url
 
-  vimeo:
-    label: Vimeo Profile
+  apple_music:
+    label: Apple Music Profile
     type: url
 
   youtube:
@@ -34,6 +34,18 @@ fields:
 
   bandcamp:
     label: Bandcamp Profile
+    type: url
+
+  soundcloud:
+    label: SoundCloud Profile
+    type: url
+
+  beatport:
+    label: Beatport Profile
+    type: url
+
+  spotify:
+    label: Spotify Profile
     type: url
 
   emails:

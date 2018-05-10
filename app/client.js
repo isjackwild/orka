@@ -1,4 +1,5 @@
 // NPM
+import 'fetch-ie8';
 import 'fastclick';
 import { h, render } from 'preact';
 import { Provider } from 'preact-redux';

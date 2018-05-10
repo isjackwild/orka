@@ -1,6 +1,9 @@
 // NPM
 import { h, render, Component } from 'preact';
 import { connect } from 'preact-redux';
+import 'gsap/TweenLite';
+import 'gsap/ScrollToPlugin';
+import 'gsap/EasePack';
 
 // API
 import { onInitialLoaded, toggleAboutOverlay } from './state/actions';
@@ -38,7 +41,7 @@ class App extends Component {
 			this.setState({ loadTimePassed: true });
 			document.body.classList.remove('body--loading');
 			if (this.state.data) store.dispatch(onInitialLoaded());
-		}, 2222);
+		}, 333);
 
 		this.fetchInitialData();
 	}
@@ -47,6 +50,10 @@ class App extends Component {
 		fetch(`/api/initial-data`)
 			.then(response => response.json())
 			.then(this.onInitialDataLoaded);
+	}
+
+	backToTop() {
+		TweenLite.to(window, 1.5, { scrollTo: 0, ease: Power3.easeOut });
 	}
 
 	onInitialDataLoaded(data) {
@@ -62,7 +69,7 @@ class App extends Component {
 			<div class={`app ${isPageLoading ? 'app--loading' : ''}`}>
 				{isInitialDataLoaded ?
 					<span>
-						<footer class="content-footer"></footer>
+						<footer class="content-footer" onClick={this.backToTop}></footer>
 						<Home aboutText={data.about} feedItems={data.feed.items} contact={data.contact} />
 						<LoadingCover isVisible={isPageLoading } />
 						<PageOverlay/>

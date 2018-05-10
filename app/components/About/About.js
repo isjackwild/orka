@@ -33,9 +33,11 @@ const View = ({ text, contact, showCursor, hideCursor }) => {
 				{contact.instagram ? <li class="about__social-item about__social-item--ig"><a target="_blank" href={contact.instagram} alt="instagram" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-instagram"></i></a></li> : null}
 				{contact.facebook ? <li class="about__social-item about__social-item--fb"><a target="_blank" href={contact.facebook} alt="facebook" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-facebook-f"></i></a></li> : null}
 				{contact.twitter ? <li class="about__social-item about__social-item--t"><a target="_blank" href={contact.twitter} alt="twitter" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-twitter"></i></a></li> : null}
-				{contact.bandcamp ? <li class="about__social-item about__social-item--bc"><a target="_blank" href={contact.bandcamp} alt="bandcamp" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-bandcamp"></i></a></li> : null}
-				{contact.vimeo ? <li class="about__social-item about__social-item--v"><a target="_blank" href={contact.vimeo} alt="vimeo" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-vimeo"></i></a></li> : null}
 				{contact.youtube ? <li class="about__social-item about__social-item--yt"><a target="_blank" href={contact.youtube} alt="youtube" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-youtube"></i></a></li> : null}
+				{contact.appleMusic ? <li class="about__social-item about__social-item--a"><a target="_blank" href={contact.appleMusic} alt="apple music" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-apple"></i></a></li> : null}
+				{contact.bandcamp ? <li class="about__social-item about__social-item--bc"><a target="_blank" href={contact.bandcamp} alt="bandcamp" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-bandcamp"></i></a></li> : null}
+				{contact.soundcloud ? <li class="about__social-item about__social-item--sc"><a target="_blank" href={contact.soundcloud} alt="soundcloud" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-soundcloud"></i></a></li> : null}
+				{contact.spotify ? <li class="about__social-item about__social-item--sp"><a target="_blank" href={contact.spotify} alt="spotify" onMouseEnter={showCursor} onMouseLeave={hideCursor}><i class="fab fa-spotify"></i></a></li> : null}
 			</ul>
 			<span class="about__credits">Site design and development by <a target="_blank" href="https://www.isjackwild.com" onMouseEnter={showCursor} onMouseLeave={hideCursor}>Jack Wild</a></span>
 		</section>

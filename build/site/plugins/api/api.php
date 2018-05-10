@@ -97,11 +97,14 @@ kirby()->set('route', array(
         $contactPage = page('contact');
         $contact = [
           'instagram' => $contactPage->instagram()->isNotEmpty() ? (string) $contactPage->instagram()->url() : null,
-          'twitter' => $contactPage->twitter()->isNotEmpty() ? (string) $contactPage->twitter()->url() : null,
           'facebook' => $contactPage->facebook()->isNotEmpty() ? (string) $contactPage->facebook()->url() : null,
-          'vimeo' => $contactPage->vimeo()->isNotEmpty() ? (string) $contactPage->vimeo()->url() : null,
+          'twitter' => $contactPage->twitter()->isNotEmpty() ? (string) $contactPage->twitter()->url() : null,
+          'appleMusic' => $contactPage->apple_music()->isNotEmpty() ? (string) $contactPage->apple_music()->url() : null,
           'youtube' => $contactPage->youtube()->isNotEmpty() ? (string) $contactPage->youtube()->url() : null,
           'bandcamp' => $contactPage->bandcamp()->isNotEmpty() ? (string) $contactPage->bandcamp()->url() : null,
+          'soundcloud' => $contactPage->soundcloud()->isNotEmpty() ? (string) $contactPage->soundcloud()->url() : null,
+          'beatport' => $contactPage->beatport()->isNotEmpty() ? (string) $contactPage->beatport()->url() : null,
+          'spotify' => $contactPage->spotify()->isNotEmpty() ? (string) $contactPage->spotify()->url() : null,
           'emails' => array(),
         ];
 
